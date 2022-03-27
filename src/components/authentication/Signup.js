@@ -10,6 +10,7 @@ import { FormContainer } from "./form-components/FormContainer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useAuth } from "./AuthProvider";
+import { AuthError } from "./form-components/AuthError";
 
 export const Signup = () => {
 	const formInputs = [
@@ -76,15 +77,18 @@ export const Signup = () => {
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 	const { signup, setEmail } = useAuth();
+	const [errorMessage, setErrorMessage] = useState("");
 
 	async function onSubmit(data) {
 		try {
+			setErrorMessage("");
 			setLoading(true);
 			await signup(data.firstName, data.lastName, data.email, data.password);
 			setEmail(data.email);
 			navigate("/confirm-signup");
 		} catch (error) {
 			console.log(error.message);
+			setErrorMessage(error.message);
 		}
 
 		setLoading(false);
@@ -108,7 +112,7 @@ export const Signup = () => {
 								/>
 							);
 						})}
-
+						<AuthError message={errorMessage} />
 						<PrimaryButton disabled={loading}>Register</PrimaryButton>
 					</div>
 

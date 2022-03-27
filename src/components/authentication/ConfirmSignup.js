@@ -12,7 +12,20 @@ import * as Yup from "yup";
 import { useAuth } from "./AuthProvider";
 
 export const ConfirmSignup = () => {
+	const { confirmSignup, emailData } = useAuth();
+
 	const formInputs = [
+		!emailData && {
+			name: "email",
+			placeholder: "Email adress",
+			type: "email",
+			position: "col-span-2",
+			errorMessage: "Please provide a valid Email address",
+			pattern:
+				/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+			required: "Please provide an Email address",
+			passwordButton: false,
+		},
 		{
 			name: "code",
 			placeholder: "Confirmation code",
@@ -25,9 +38,12 @@ export const ConfirmSignup = () => {
 	];
 
 	const formSchema = Yup.object().shape({
-		code: Yup.string()
+		email: Yup.string()
 			.matches(formInputs[0].pattern, formInputs[0].errorMessage)
 			.required(formInputs[0].required),
+		code: Yup.string()
+			.matches(formInputs[1].pattern, formInputs[1].errorMessage)
+			.required(formInputs[1].required),
 	});
 
 	const {
@@ -37,12 +53,13 @@ export const ConfirmSignup = () => {
 	} = useForm({ mode: "onChange", resolver: yupResolver(formSchema) });
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
-	const { confirmSignup, emailData } = useAuth();
 
 	async function onSubmit(data) {
 		try {
 			setLoading(true);
-			await confirmSignup(emailData, data.code);
+			emailData
+				? await confirmSignup(emailData, data.code)
+				: await confirmSignup(data.email, data.code);
 			navigate("/login");
 		} catch (error) {
 			console.log(error.message);

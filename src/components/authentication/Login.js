@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "./form-components/FormInput";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Form } from "./form-components/Form";
 import { PrimaryButton } from "./form-components/PrimaryButton";
 import { FormHeader } from "./form-components/FormHeader";
@@ -10,6 +10,7 @@ import { FormContainer } from "./form-components/FormContainer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useAuth } from "./AuthProvider";
+import { AuthError } from "./form-components/AuthError";
 
 export const Login = () => {
 	const [passwordShown, setPasswordShown] = useState(false);
@@ -54,6 +55,7 @@ export const Login = () => {
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 	const { login, updateCurrentUser } = useAuth();
+	const [errorMessage, setErrorMessage] = useState("");
 
 	const togglePassword = () => {
 		setPasswordShown(!passwordShown);
@@ -61,12 +63,14 @@ export const Login = () => {
 
 	async function onSubmit(data) {
 		try {
+			setErrorMessage("");
 			setLoading(true);
 			await login(data.email, data.password);
 			await updateCurrentUser();
 			navigate("/");
 		} catch (error) {
 			console.log(error.message);
+			setErrorMessage(error.message);
 		}
 
 		setLoading(false);
@@ -92,6 +96,7 @@ export const Login = () => {
 								/>
 							);
 						})}
+						<AuthError message={errorMessage} />
 						<PrimaryButton disabled={loading}>Login</PrimaryButton>
 					</div>
 

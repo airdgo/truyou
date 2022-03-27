@@ -73,15 +73,13 @@ export const AuthProvider = ({ children }) => {
 		return Auth.signOut();
 	}
 
-	// function forgotPassword(email) {
-	// 	return sendPasswordResetEmail(auth, email, {
-	// 		url: "http://localhost:3000/login",
-	// 	});
-	// }
+	function forgotPassword(email) {
+		return Auth.forgotPassword(email);
+	}
 
-	// function resetPassword(oobCode, newPassword) {
-	// 	return confirmPasswordReset(auth, oobCode, newPassword);
-	// }
+	function resetPassword(email, code, newPassword) {
+		return Auth.forgotPasswordSubmit(email, code, newPassword);
+	}
 
 	const value = {
 		currentUser,
@@ -92,6 +90,8 @@ export const AuthProvider = ({ children }) => {
 		login,
 		logout,
 		updateCurrentUser,
+		forgotPassword,
+		resetPassword,
 	};
 
 	return (

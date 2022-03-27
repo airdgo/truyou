@@ -9,6 +9,7 @@ import { AuthFooter } from "./AuthFooter";
 import { FormContainer } from "./form-components/FormContainer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useAuth } from "./AuthProvider";
 
 export const ForgotPasswordStep1 = () => {
 	const formInputs = [
@@ -39,10 +40,13 @@ export const ForgotPasswordStep1 = () => {
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
+	const { forgotPassword, setEmail } = useAuth();
+
 	async function onSubmit(data) {
 		try {
 			setLoading(true);
-			await console.log(data);
+			setEmail(data.email);
+			await forgotPassword(data.email);
 			navigate("/forgot-password-step-2");
 		} catch (error) {
 			console.log(error.message);

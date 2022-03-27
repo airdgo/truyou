@@ -9,9 +9,13 @@ import { AuthFooter } from "./AuthFooter";
 import { FormContainer } from "./form-components/FormContainer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useAuth } from "./AuthProvider";
 
 export const ForgotPasswordStep2 = () => {
 	const formSchema = Yup.object().shape({
+		code: Yup.string()
+			.matches(/[0-9.]+/, "Please provide a valid code")
+			.required("Please provide a code"),
 		newPassword: Yup.string()
 			.matches(
 				/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,30}$/,
@@ -46,8 +50,17 @@ export const ForgotPasswordStep2 = () => {
 
 	const formInputs = [
 		{
+			name: "code",
+			placeholder: "Confirmation code",
+			type: "text",
+			position: "col-span-2",
+			errorMessage: "Please provide a valid code",
+			pattern: /[0-9.]+/,
+			required: "Please provide a code",
+		},
+		{
 			name: "newPassword",
-			placeholder: "New Password",
+			placeholder: "New password",
 			type: passwordShown[0].showPassword ? "text" : "password",
 			position: "col-span-2",
 			errorMessage:
@@ -58,7 +71,7 @@ export const ForgotPasswordStep2 = () => {
 		},
 		{
 			name: "confirmPassword",
-			placeholder: "Password",
+			placeholder: "Confirm new password",
 			type: passwordShown[1].showPassword ? "text" : "password",
 			position: "col-span-2",
 			errorMessage: "Passwords do not match",
@@ -78,10 +91,12 @@ export const ForgotPasswordStep2 = () => {
 		setPasswordShown(newPasswordShown);
 	};
 
+	const { resetPassword, emailData } = useAuth();
+
 	async function onSubmit(data) {
 		try {
 			setLoading(true);
-			await console.log(data);
+			await resetPassword(emailData, data.code, data.confirmPassword);
 			navigate("/login");
 		} catch (error) {
 			console.log(error.message);
@@ -106,7 +121,7 @@ export const ForgotPasswordStep2 = () => {
 									error={!!errors[input.name]}
 									helperText={errors[input.name]?.message}
 									showPassword={input.passwordButton}
-									togglePassword={() => togglePassword(index)}
+									togglePassword={() => togglePassword(index - 1)}
 								/>
 							);
 						})}
