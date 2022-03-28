@@ -8,6 +8,7 @@ import { ForgotPasswordStep2 } from "./components/authentication/ForgotPasswordS
 import { Layout } from "./components/Layout";
 import RequireAuth from "./components/authentication/RequireAuth";
 import RedirectToDashboad from "./components/authentication/RedirectToDashboard";
+import RedirectToForgotPasswordStep1 from "./components/authentication/RedirectToForgotPasswordStep1";
 
 function App() {
 	return (
@@ -28,10 +29,12 @@ function App() {
 							path="/forgot-password-step-1"
 							element={<ForgotPasswordStep1 />}
 						/>
-						<Route
-							path="/forgot-password-step-2"
-							element={<ForgotPasswordStep2 />}
-						/>
+						<Route element={<RedirectToForgotPasswordStep1 />}>
+							<Route
+								path="/forgot-password-step-2"
+								element={<ForgotPasswordStep2 />}
+							/>
+						</Route>
 					</Route>
 				</Route>
 			</Routes>

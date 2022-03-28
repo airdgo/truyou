@@ -9,7 +9,7 @@ export function useAuth() {
 
 export const AuthProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState(null);
-	const [emailData, setEmailData] = useState("");
+	const [emailData, setEmailData] = useState(null);
 	const [loading, setLoading] = useState(true);
 
 	function setEmail(value) {
