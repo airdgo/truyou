@@ -5,10 +5,10 @@ const RedirectToForgotPasswordStep1 = () => {
 	const { emailData } = useAuth();
 	const location = useLocation();
 
-	return !emailData ? (
-		<Navigate to="/forgot-password-step-1" state={{ from: location }} replace />
-	) : (
+	return emailData ? (
 		<Outlet />
+	) : (
+		<Navigate to="/forgot-password-step-1" state={{ from: location }} replace />
 	);
 };
 
