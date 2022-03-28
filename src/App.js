@@ -9,6 +9,7 @@ import { Layout } from "./components/Layout";
 import RequireAuth from "./components/authentication/RequireAuth";
 import RedirectToDashboad from "./components/authentication/RedirectToDashboard";
 import RedirectToForgotPasswordStep1 from "./components/authentication/RedirectToForgotPasswordStep1";
+import { NotFound } from "./components/NotFound";
 
 function App() {
 	return (
@@ -36,6 +37,7 @@ function App() {
 							/>
 						</Route>
 					</Route>
+					<Route path="*" element={<NotFound />} />
 				</Route>
 			</Routes>
 		</div>
