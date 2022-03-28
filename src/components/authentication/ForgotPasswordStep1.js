@@ -10,6 +10,7 @@ import { FormContainer } from "./form-components/FormContainer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useAuth } from "./AuthProvider";
+import { AuthError } from "./form-components/AuthError";
 
 export const ForgotPasswordStep1 = () => {
 	const formInputs = [
@@ -39,17 +40,18 @@ export const ForgotPasswordStep1 = () => {
 	} = useForm({ mode: "onChange", resolver: yupResolver(formSchema) });
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
-
+	const [errorMessage, setErrorMessage] = useState("");
 	const { forgotPassword, setEmail } = useAuth();
 
 	async function onSubmit(data) {
 		try {
+			setErrorMessage("");
 			setLoading(true);
 			setEmail(data.email);
 			await forgotPassword(data.email);
 			navigate("/forgot-password-step-2");
 		} catch (error) {
-			console.log(error.message);
+			setErrorMessage(error.message);
 		}
 
 		setLoading(false);
@@ -73,7 +75,7 @@ export const ForgotPasswordStep1 = () => {
 								/>
 							);
 						})}
-
+						<AuthError message={errorMessage} />
 						<PrimaryButton disabled={loading}>Reset password</PrimaryButton>
 					</div>
 				</Form>

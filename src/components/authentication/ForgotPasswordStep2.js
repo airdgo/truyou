@@ -10,6 +10,7 @@ import { FormContainer } from "./form-components/FormContainer";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useAuth } from "./AuthProvider";
+import { AuthError } from "./form-components/AuthError";
 
 export const ForgotPasswordStep2 = () => {
 	const formSchema = Yup.object().shape({
@@ -90,16 +91,17 @@ export const ForgotPasswordStep2 = () => {
 
 		setPasswordShown(newPasswordShown);
 	};
-
+	const [errorMessage, setErrorMessage] = useState("");
 	const { resetPassword, emailData } = useAuth();
 
 	async function onSubmit(data) {
 		try {
+			setErrorMessage("");
 			setLoading(true);
 			await resetPassword(emailData, data.code, data.confirmPassword);
 			navigate("/login");
 		} catch (error) {
-			console.log(error.message);
+			setErrorMessage(error.message);
 		}
 
 		setLoading(false);
@@ -125,7 +127,7 @@ export const ForgotPasswordStep2 = () => {
 								/>
 							);
 						})}
-
+						<AuthError message={errorMessage} />
 						<PrimaryButton disabled={loading}>Create</PrimaryButton>
 					</div>
 				</Form>
