@@ -19,7 +19,7 @@ export const FormInput = ({
 			<input
 				className={`${
 					error ? "border border-red-400" : "valid:border-green-400"
-				} peer focus:shadow-outline focus:outline-none" w-full appearance-none rounded bg-neutral py-1 px-3 text-sm font-[200] leading-tight text-gray-500
+				} peer focus:shadow-outline focus:outline-none w-full appearance-none rounded bg-neutral py-1 px-3 text-sm font-[200] leading-tight text-gray-500
 				placeholder-[#c4c4c4] outline-none valid:border `}
 				{...register(name)}
 				required={required}

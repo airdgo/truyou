@@ -13,34 +13,32 @@ import { NotFound } from "./components/NotFound";
 
 function App() {
 	return (
-		<div className="App">
-			<Routes>
-				<Route path="/" element={<Layout />}>
-					{/* Dashboard */}
-					<Route element={<RequireAuth />}>
-						<Route exact path="/" element={<Dashboard />} />
-					</Route>
-
-					{/* Authentication */}
-					<Route element={<RedirectToDashboad />}>
-						<Route path="/signup" element={<Signup />} />
-						<Route path="/confirm-signup" element={<ConfirmSignup />} />
-						<Route path="/login" element={<Login />} />
-						<Route
-							path="/forgot-password-step-1"
-							element={<ForgotPasswordStep1 />}
-						/>
-						<Route element={<RedirectToForgotPasswordStep1 />}>
-							<Route
-								path="/forgot-password-step-2"
-								element={<ForgotPasswordStep2 />}
-							/>
-						</Route>
-					</Route>
-					<Route path="*" element={<NotFound />} />
+		<Routes>
+			<Route path="/" element={<Layout />}>
+				{/* Dashboard */}
+				<Route element={<RequireAuth />}>
+					<Route exact path="/" element={<Dashboard />} />
 				</Route>
-			</Routes>
-		</div>
+
+				{/* Authentication */}
+				<Route element={<RedirectToDashboad />}>
+					<Route path="/signup" element={<Signup />} />
+					<Route path="/confirm-signup" element={<ConfirmSignup />} />
+					<Route path="/login" element={<Login />} />
+					<Route
+						path="/forgot-password-step-1"
+						element={<ForgotPasswordStep1 />}
+					/>
+					<Route element={<RedirectToForgotPasswordStep1 />}>
+						<Route
+							path="/forgot-password-step-2"
+							element={<ForgotPasswordStep2 />}
+						/>
+					</Route>
+				</Route>
+				<Route path="*" element={<NotFound />} />
+			</Route>
+		</Routes>
 	);
 }
 
