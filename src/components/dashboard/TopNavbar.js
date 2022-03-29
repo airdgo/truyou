@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../authentication/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-export const Navbar = () => {
-	const { logout } = useAuth();
+export const TopNavbar = () => {
+	const { logout, currentUser } = useAuth();
 	const navigate = useNavigate();
 
 	async function handleLogout(data) {
@@ -19,10 +19,8 @@ export const Navbar = () => {
 	return (
 		<nav className="absolute w-full bg-primary flex justify-between py-3 px-4">
 			<SearchBar />
-			<ul>
-				<Link to="/user">
-					<li className="text-blue-500 hover:text-blue-800">Profile</li>
-				</Link>
+			<ul className="text-white">
+				<li>Hello {currentUser.attributes.given_name}</li>
 			</ul>
 			<button onClick={handleLogout}>Logout</button>
 		</nav>
