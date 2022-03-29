@@ -20,7 +20,7 @@ export const TopNavbar = () => {
 		<nav className="absolute w-full bg-primary flex justify-between py-3 px-4">
 			<SearchBar />
 			<ul className="text-white">
-				<li>Hello {currentUser.attributes.given_name}</li>
+				<li>Hello, {currentUser.attributes.given_name}</li>
 			</ul>
 			<button onClick={handleLogout}>Logout</button>
 		</nav>
