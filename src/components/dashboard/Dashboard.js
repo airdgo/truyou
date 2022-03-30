@@ -3,9 +3,9 @@ import { TopNavbar } from "./TopNavbar";
 
 export const Dashboard = () => {
 	return (
-		<>
-			{/* <TopNavbar /> */}
+		<div className="bg-background min-h-screen">
+			<TopNavbar />
 			<LeftNavbar />
-		</>
+		</div>
 	);
 };
