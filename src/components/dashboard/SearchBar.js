@@ -1,4 +1,4 @@
-import { GiMagnifyingGlass } from "react-icons/gi";
+import { FiSearch } from "react-icons/fi";
 
 export const SearchBar = () => {
 	return (
@@ -9,7 +9,7 @@ export const SearchBar = () => {
 				className="bg-primaryLight text-white text-[10px] rounded-full placeholder-white py-4 pl-12
 							 font-search w-full focus:shadow-outline focus:outline-none appearance-none outline-none"
 			/>
-			<GiMagnifyingGlass className="text-white text-2xl -scale-x-100 absolute top-3 left-4" />
+			<FiSearch className="text-white text-2xl absolute top-3 left-4" />
 		</form>
 	);
 };
