@@ -5,35 +5,52 @@ import { RiBitCoinLine } from "react-icons/ri";
 import { RiFileListLine } from "react-icons/ri";
 import { FiLogOut } from "react-icons/fi";
 import { FaCircle } from "react-icons/fa";
+import { useAuth } from "../authentication/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 export const LeftNavbar = () => {
+	const icons = [
+		<FiUser />,
+		<FiUsers />,
+		<RiFileListLine />,
+		<FiFolder />,
+		<RiBitCoinLine />,
+	];
+
+	const { logout } = useAuth();
+	const navigate = useNavigate();
+
+	async function handleLogout(data) {
+		try {
+			await logout();
+			navigate("/login");
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
 	return (
-		<nav>
-			<ul>
-				<li>
+		<nav className="w-16 flex flex-col items-center min-h-screen justify-between py-6">
+			<ul className=" flex flex-col items-center gap-6">
+				<li className="text-black text-2xl">
 					<FaCircle />
 				</li>
-				<li>
-					<FiUser />
-				</li>
-				<li>
-					<FiUsers />
-				</li>
-				<li>
-					<RiFileListLine />
-				</li>
-				<li>
-					<FiFolder />
-				</li>
-				<li>
-					<RiBitCoinLine />
-				</li>
+				{icons.map((icon, index) => {
+					return (
+						<li key={index} className="text-primary text-xl">
+							{icon}
+						</li>
+					);
+				})}
 			</ul>
-			<ul>
-				<li>
+			<ul className="flex flex-col items-center gap-8">
+				<li className="text-black text-2xl">
 					<FaCircle />
 				</li>
-				<li>
+				<li
+					className="text-primary text-xl cursor-pointer"
+					onClick={handleLogout}
+				>
 					<FiLogOut />
 				</li>
 			</ul>
