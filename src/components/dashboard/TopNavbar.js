@@ -8,11 +8,11 @@ export const TopNavbar = () => {
 	const { currentUser } = useAuth();
 
 	return (
-		<nav className="w-full bg-primary flex justify-between items-center py-3 pl-20 col-span-full">
+		<nav className="w-full bg-primary flex justify-between items-center py-3 pl-4 col-span-2">
 			<SearchBar />
 			<div className="flex">
 				<div className="text-search text-white">
-					<span className=" font-bold">Hello, </span>
+					<span className="font-bold">Hello, </span>
 					{currentUser.attributes.given_name}
 				</div>
 				<ul className="text-white flex text-xl gap-4 mx-20">

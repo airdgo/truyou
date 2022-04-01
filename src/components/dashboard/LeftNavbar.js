@@ -30,7 +30,7 @@ export const LeftNavbar = () => {
 	}
 
 	return (
-		<nav className="bg-white flex flex-col items-center min-h-screen justify-between py-6">
+		<nav className="bg-white flex flex-col items-center min-h-screen justify-between py-6 row-span-full">
 			<ul className="flex flex-col items-center gap-6">
 				<li className="text-black text-2xl">
 					<FaCircle />
