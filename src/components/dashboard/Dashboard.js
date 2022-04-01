@@ -1,3 +1,4 @@
+import { Bucketlist } from "./Bucketlist";
 import { LeftNavbar } from "./LeftNavbar";
 import { MoodAndPosts } from "./MoodAndPosts";
 import { TopNavbar } from "./TopNavbar";
@@ -8,7 +9,7 @@ export const Dashboard = () => {
 			<LeftNavbar />
 			<TopNavbar />
 			<MoodAndPosts />
-			<div className="bg-purple-500 row-span-2">buckedlist</div>
+			<Bucketlist />
 		</div>
 	);
 };
