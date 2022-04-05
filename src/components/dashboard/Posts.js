@@ -1,5 +1,5 @@
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
-import { FormButton } from "../authentication/form-components/FormButton";
+import { PrimaryButton } from "../PrimaryButton";
 
 export const Posts = () => {
 	return (
@@ -10,8 +10,8 @@ export const Posts = () => {
 					<HiOutlineDotsHorizontal className="text-xl" />
 				</div>
 				<div>
-					<FormButton>Add new post</FormButton>
-					<FormButton>Add new friend</FormButton> icons
+					<PrimaryButton>Add new post</PrimaryButton>
+					<PrimaryButton>Add new friend</PrimaryButton> icons
 				</div>
 			</div>
 			<div>Posts content</div>
