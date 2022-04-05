@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "./form-components/FormInput";
 import { useForm } from "react-hook-form";
 import { Form } from "./form-components/Form";
-import { PrimaryButton } from "./form-components/PrimaryButton";
+import { FormButton } from "./form-components/FormButton";
 import { FormHeader } from "./form-components/FormHeader";
 import { AuthFooter } from "./AuthFooter";
 import { FormContainer } from "./form-components/FormContainer";
@@ -76,7 +76,7 @@ export const ForgotPasswordStep1 = () => {
 							);
 						})}
 						<AuthError message={errorMessage} />
-						<PrimaryButton disabled={loading}>Reset password</PrimaryButton>
+						<FormButton disabled={loading}>Reset password</FormButton>
 					</div>
 				</Form>
 			</FormContainer>
