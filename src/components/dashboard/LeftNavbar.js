@@ -37,7 +37,7 @@ export const LeftNavbar = () => {
 				</li>
 				{icons.map((icon, index) => {
 					return (
-						<li key={index} className="text-primary text-xl">
+						<li key={index} className="text-primary text-xl cursor-pointer">
 							{icon}
 						</li>
 					);

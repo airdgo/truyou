@@ -16,13 +16,13 @@ export const TopNavbar = () => {
 					{currentUser.attributes.given_name}
 				</div>
 				<ul className="text-white flex text-xl gap-4 mx-20">
-					<li>
+					<li className="cursor-pointer">
 						<RiBitCoinLine />
 					</li>
-					<li>
+					<li className="cursor-pointer">
 						<FiBell />
 					</li>
-					<li>
+					<li className="cursor-pointer">
 						<FiMail />
 					</li>
 				</ul>
