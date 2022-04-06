@@ -17,6 +17,7 @@ module.exports = {
 				primaryLight: "#210c5e",
 				neutral: "#f5f5f5",
 				neutralDark: "#c4c4c4",
+				neutralDarker: "#8c8c8c",
 				accent: "#0DDCC3",
 			},
 		},
