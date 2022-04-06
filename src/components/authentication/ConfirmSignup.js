@@ -14,18 +14,7 @@ import { useAuth } from "./AuthProvider";
 export const ConfirmSignup = () => {
 	const { confirmSignup, emailData } = useAuth();
 
-	const formInputs = [
-		!emailData && {
-			name: "email",
-			placeholder: "Email adress",
-			type: "email",
-			position: "col-span-2",
-			errorMessage: "Please provide a valid Email address",
-			pattern:
-				/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-			required: "Please provide an Email address",
-			passwordButton: false,
-		},
+	let formInputs = [
 		{
 			name: "code",
 			placeholder: "Confirmation code",
@@ -37,14 +26,45 @@ export const ConfirmSignup = () => {
 		},
 	];
 
-	const formSchema = Yup.object().shape({
-		email: Yup.string()
+	let formSchema = Yup.object().shape({
+		code: Yup.string()
 			.matches(formInputs[0].pattern, formInputs[0].errorMessage)
 			.required(formInputs[0].required),
-		code: Yup.string()
-			.matches(formInputs[1].pattern, formInputs[1].errorMessage)
-			.required(formInputs[1].required),
 	});
+
+	if (!emailData) {
+		formInputs = [
+			{
+				name: "email",
+				placeholder: "Email adress",
+				type: "email",
+				position: "col-span-2",
+				errorMessage: "Please provide a valid Email address",
+				pattern:
+					/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+				required: "Please provide an Email address",
+				passwordButton: false,
+			},
+			{
+				name: "code",
+				placeholder: "Confirmation code",
+				type: "text",
+				position: "col-span-2",
+				errorMessage: "Please provide a valid code",
+				pattern: /[0-9.]+/,
+				required: "Please provide a code",
+			},
+		];
+
+		formSchema = Yup.object().shape({
+			email: Yup.string()
+				.matches(formInputs[0].pattern, formInputs[0].errorMessage)
+				.required(formInputs[0].required),
+			code: Yup.string()
+				.matches(formInputs[1].pattern, formInputs[1].errorMessage)
+				.required(formInputs[1].required),
+		});
+	}
 
 	const {
 		handleSubmit,

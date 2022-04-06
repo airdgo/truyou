@@ -83,8 +83,8 @@ export const Signup = () => {
 		try {
 			setErrorMessage("");
 			setLoading(true);
-			await signup(data.firstName, data.lastName, data.email, data.password);
 			setEmail(data.email);
+			await signup(data.firstName, data.lastName, data.email, data.password);
 			navigate("/confirm-signup");
 		} catch (error) {
 			console.log(error.message);
