@@ -3,12 +3,14 @@ import { PrimaryButton } from "../PrimaryButton";
 import { FiLayers } from "react-icons/fi";
 import { BiGridAlt } from "react-icons/bi";
 import { useAuth } from "../authentication/AuthProvider";
+import { ImageIcon } from "../../icons/ImageIcon";
+import { Section } from "./Section";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
 
 	return (
-		<section className="bg-white rounded-md p-5 font-card font-normal shadow-xl">
+		<Section>
 			<header className="flex flex-col gap-8">
 				<div className="text-neutralDark flex justify-between items-center">
 					<div className="text-xs">Posts</div>
@@ -30,17 +32,16 @@ export const Posts = () => {
 				</div>
 			</header>
 
-			<div className="flex items-center justify-center min-h-[80%] text-center text-neutralDarker">
-				<div className="max-w-xs">
-					<span className="font-bold text-xl">
-						Hello, {currentUser.attributes.given_name}!
-					</span>
-					<p className="font-normal text-sm">
-						There’res no posts here yet. Start posting so you can keep your
-						memories.
-					</p>
-				</div>
+			<div className="flex items-center justify-center min-h-[80%] text-center text-neutralDarker flex-col  gap-6">
+				<ImageIcon />
+				<span className="font-bold text-xl">
+					Hello, {currentUser.attributes.given_name}!
+				</span>
+				<p className="font-normal text-sm max-w-xs">
+					There’s no posts here yet. Start posting so you can keep your
+					memories.
+				</p>
 			</div>
-		</section>
+		</Section>
 	);
 };
