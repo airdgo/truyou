@@ -38,7 +38,7 @@ export const Posts = () => {
 					Hello, {currentUser.attributes.given_name}!
 				</span>
 				<p className="font-normal text-sm max-w-xs">
-					There’s no posts here yet. Start posting so you can keep your
+					There's no posts here yet. Start posting so you can keep your
 					memories.
 				</p>
 			</div>
