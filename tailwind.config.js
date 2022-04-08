@@ -8,6 +8,9 @@ module.exports = {
 				card: ["Poppins", "sans-serif"],
 				search: ["Montserrat", "sans-serif"],
 			},
+			fontSize: {
+				"2xs": "10px",
+			},
 			boxShadow: {
 				"3xl": "0px 2px 8px 0px rgba(99, 99, 99, 0.2)",
 			},
