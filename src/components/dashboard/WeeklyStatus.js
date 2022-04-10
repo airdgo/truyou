@@ -21,7 +21,7 @@ export const WeeklyStatus = () => {
 						<span className="text-primary text-2xl font-bold">0</span>
 					</li>
 					<li>
-						<p className="text-neutralDark font-light text-text-2xs">Friends</p>
+						<p className="text-neutralDark font-light text-2xs">Friends</p>
 						<span className="text-primary text-2xl font-bold">0</span>
 					</li>
 				</ul>
