@@ -20,7 +20,7 @@ export const LeftNavbar = () => {
 	const { logout } = useAuth();
 	const navigate = useNavigate();
 
-	async function handleLogout(data) {
+	async function handleLogout() {
 		try {
 			await logout();
 			navigate("/login");
