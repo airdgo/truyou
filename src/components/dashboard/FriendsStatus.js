@@ -1,4 +1,4 @@
-import React from "react";
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
@@ -39,7 +39,7 @@ const options = {
 			position: "left",
 			labels: {
 				usePointStyle: true,
-				boxWidth: 8,
+				boxWidth: 6,
 			},
 		},
 	},
@@ -48,8 +48,14 @@ const options = {
 export const FriendsStatus = () => {
 	return (
 		<section>
-			<div className="max-w-[15rem]">
-				<Doughnut data={data} options={options} />
+			<header className="text-neutralDark flex justify-between items-center">
+				<div className="text-2xs">Friends emotions status</div>
+				<HiOutlineDotsHorizontal className="text-xl cursor-pointer" />
+			</header>
+			<div className="flex w-full items-center justify-end h-32">
+				<div className="max-w-[14rem] ">
+					<Doughnut data={data} options={options} />
+				</div>
 			</div>
 		</section>
 	);
