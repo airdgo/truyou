@@ -1,6 +1,7 @@
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { GenerateLegend } from "./GenerateLegend";
 
 export const FriendsStatus = () => {
 	ChartJS.register(ArcElement, Tooltip, Legend);
@@ -46,30 +47,18 @@ export const FriendsStatus = () => {
 		},
 	};
 
-	// const toggleData = (value) => {
-	// 	const visibilityData = isDatasetVisible;
-	// 	console.log(visibilityData);
-	// };
-
 	return (
 		<section>
 			<header className="text-neutralDark flex justify-between items-center">
 				<div className="text-2xs">Friends emotions status</div>
 				<HiOutlineDotsHorizontal className="text-xl cursor-pointer" />
 			</header>
-			<div className="flex w-full items-center justify-end h-32">
-				<div className="max-w-[8rem] ">
+			<div className="flex w-full items-center justify-between min-h-[90%]">
+				<GenerateLegend data={data} />
+
+				<div className="max-w-[6rem] ">
 					<Doughnut data={data} options={options} />
 				</div>
-
-				{/* <button
-					className={`bg-[${data.datasets[0].backgroundColor[0]}]`}
-					onClick={() => toggleData(0)}
-				>
-					{data.labels[0]}
-				</button>
-				<button onClick={() => toggleData(1)}>Sad</button>
-				<button onClick={() => toggleData(2)}>Angry</button> */}
 			</div>
 		</section>
 	);
