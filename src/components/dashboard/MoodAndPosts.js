@@ -2,9 +2,9 @@ import { Moods } from "./Moods";
 import { Posts } from "./Posts";
 export const MoodAndPosts = () => {
 	return (
-		<div className="grid grid-rows-[1fr_3fr] gap-4 m-4">
+		<section className="grid grid-rows-[1fr_3fr] gap-2 m-2">
 			<Moods />
 			<Posts />
-		</div>
+		</section>
 	);
 };
