@@ -4,9 +4,7 @@ import {
 	LinearScale,
 	PointElement,
 	LineElement,
-	Title,
 	Tooltip,
-	Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
@@ -16,17 +14,29 @@ export const EmotionStatus = () => {
 		LinearScale,
 		PointElement,
 		LineElement,
-		Title,
-		Tooltip,
-		Legend
+		Tooltip
 	);
 
 	const options = {
 		responsive: true,
+		maintainAspectRatio: false,
 		plugins: {
 			legend: {
 				display: false,
-				position: "top",
+			},
+		},
+		scales: {
+			yAxis: {
+				display: false,
+			},
+			xAxis: {
+				ticks: {
+					color: "#c4c4c4",
+					font: {
+						size: 10,
+						family: "Poppins",
+					},
+				},
 			},
 		},
 	};
@@ -52,15 +62,15 @@ export const EmotionStatus = () => {
 			{
 				label: "Happy",
 				data: [65, 59, 80, 81, 56, 55, 40, 60, 43, 22, 80, 75],
-				borderColor: "rgb(255, 99, 132)",
-				backgroundColor: "rgba(255, 99, 132, 0.5)",
+				borderColor: "#FCE303",
+				pointRadius: 0,
 				tension: 0.2,
 			},
 			{
 				label: "Sad",
-				data: [25, 69, 30, 85, 26, 65, 50, 60, 65, 50, 55, 60],
-				borderColor: "rgb(53, 162, 235)",
-				backgroundColor: "rgba(53, 162, 235, 0.5)",
+				data: [25, 35, 56, 65, 76, 65, 50, 60, 65, 50, 55, 60],
+				borderColor: "#0085FF",
+				pointRadius: 0,
 				tension: 0.2,
 			},
 		],
@@ -73,7 +83,9 @@ export const EmotionStatus = () => {
 				<h2 className="text-xl font-bold text-primary mt-2">No mood here :(</h2>
 			</header>
 
-			<div>{/* <Line options={options} data={data} /> */}</div>
+			<div className="max-h-[5rem]">
+				<Line options={options} data={data} />
+			</div>
 		</section>
 	);
 };
