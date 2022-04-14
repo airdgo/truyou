@@ -83,7 +83,7 @@ export const EmotionStatus = () => {
 				<h2 className="text-xl font-bold text-primary mt-2">No mood here :(</h2>
 			</header>
 
-			<div className="max-h-[5rem]">
+			<div className="max-h-[5rem] mt-1">
 				<Line options={options} data={data} />
 			</div>
 		</section>
