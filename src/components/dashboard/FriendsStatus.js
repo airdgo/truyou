@@ -20,15 +20,15 @@ export const FriendsStatus = () => {
 					"#0DDCC3",
 					"#9B55E5",
 				],
-				// borderColor: [
-				// 	"rgba(255, 99, 132, 1)",
-				// 	"rgba(54, 162, 235, 1)",
-				// 	"rgba(255, 206, 86, 1)",
-				// 	"rgba(75, 192, 192, 1)",
-				// 	"rgba(153, 102, 255, 1)",
-				// 	"rgba(255, 159, 64, 1)",
-				// ],
-				// borderWidth: 1,
+				borderColor: [
+					"#FCE303",
+					"#0085FF",
+					"#F20311",
+					"#6CC80A",
+					"#0DDCC3",
+					"#9B55E5",
+				],
+				borderWidth: 0.5,
 			},
 		],
 	};
@@ -53,10 +53,10 @@ export const FriendsStatus = () => {
 				<div className="text-2xs">Friends emotions status</div>
 				<HiOutlineDotsHorizontal className="text-xl cursor-pointer" />
 			</header>
-			<div className="flex w-full items-center justify-between min-h-[90%]">
+			<div className="flex w-full items-center justify-between min-h-[90%] pr-4">
 				<GenerateLegend data={data} />
 
-				<div className="max-w-[6rem] ">
+				<div className="max-w-[8rem]">
 					<Doughnut data={data} options={options} />
 				</div>
 			</div>
