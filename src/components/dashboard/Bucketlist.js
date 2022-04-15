@@ -4,7 +4,9 @@ import { PrimaryButton } from "../PrimaryButton";
 
 export const Bucketlist = () => {
 	return (
-		<Section className={"my-2 mr-2"}>
+		<Section
+			className={"mr-4 min-h-[88vh] max-w-[15rem] fixed right-0 top-[5rem]"}
+		>
 			<header className="flex justify-between items-center">
 				<p className="text-neutralDark text-xs">My Bucket list</p>
 				<button className="bg-neutral rounded-full p-1">
