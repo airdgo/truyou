@@ -8,7 +8,7 @@ import { FaCircle } from "react-icons/fa";
 import { useAuth } from "../authentication/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
-export const LeftNavbar = () => {
+export const SideBar = () => {
 	const icons = [
 		<FiUser />,
 		<FiUsers />,
