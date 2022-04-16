@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FormInput } from "./form-components/FormInput";
 import { useForm } from "react-hook-form";
 import { Form } from "./form-components/Form";
-import { PrimaryButton } from "./form-components/PrimaryButton";
+import { FormButton } from "./form-components/FormButton";
 import { FormHeader } from "./form-components/FormHeader";
 import { AuthFooter } from "./AuthFooter";
 import { FormContainer } from "./form-components/FormContainer";
@@ -83,8 +83,8 @@ export const Signup = () => {
 		try {
 			setErrorMessage("");
 			setLoading(true);
-			await signup(data.firstName, data.lastName, data.email, data.password);
 			setEmail(data.email);
+			await signup(data.firstName, data.lastName, data.email, data.password);
 			navigate("/confirm-signup");
 		} catch (error) {
 			console.log(error.message);
@@ -113,7 +113,7 @@ export const Signup = () => {
 							);
 						})}
 						<AuthError message={errorMessage} />
-						<PrimaryButton disabled={loading}>Register</PrimaryButton>
+						<FormButton disabled={loading}>Register</FormButton>
 					</div>
 
 					<p className="text-xs font-light">

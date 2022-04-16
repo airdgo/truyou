@@ -2,7 +2,7 @@ import { FiSearch } from "react-icons/fi";
 
 export const SearchBar = () => {
 	return (
-		<form className=" w-full max-w-md relative">
+		<form className="w-full max-w-md relative">
 			<input
 				type="text"
 				placeholder="Search by date, post's or whatever you want..."

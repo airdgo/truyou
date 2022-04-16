@@ -8,6 +8,9 @@ module.exports = {
 				card: ["Poppins", "sans-serif"],
 				search: ["Montserrat", "sans-serif"],
 			},
+			fontSize: {
+				"2xs": "10px",
+			},
 			boxShadow: {
 				"3xl": "0px 2px 8px 0px rgba(99, 99, 99, 0.2)",
 			},
@@ -16,6 +19,9 @@ module.exports = {
 				primary: "#150052",
 				primaryLight: "#210c5e",
 				neutral: "#f5f5f5",
+				neutralDark: "#c4c4c4",
+				neutralDarker: "#8c8c8c",
+				accent: "#0DDCC3",
 			},
 		},
 	},

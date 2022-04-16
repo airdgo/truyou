@@ -8,21 +8,21 @@ export const TopNavbar = () => {
 	const { currentUser } = useAuth();
 
 	return (
-		<nav className="w-full absolute bg-primary flex justify-between items-center py-3 pl-20">
+		<nav className="w-full bg-primary flex justify-between items-center pl-4 col-span-2">
 			<SearchBar />
-			<div className="flex">
+			<div className="flex items-center">
 				<div className="text-search text-white">
-					<span className=" font-bold">Hello, </span>
+					<span className="font-bold">Hello, </span>
 					{currentUser.attributes.given_name}
 				</div>
 				<ul className="text-white flex text-xl gap-4 mx-20">
-					<li>
+					<li className="cursor-pointer">
 						<RiBitCoinLine />
 					</li>
-					<li>
+					<li className="cursor-pointer">
 						<FiBell />
 					</li>
-					<li>
+					<li className="cursor-pointer">
 						<FiMail />
 					</li>
 				</ul>
