@@ -4,7 +4,7 @@ import { RiBitCoinLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 
-export const TopNavbar = () => {
+export const Navbar = () => {
 	const { currentUser } = useAuth();
 
 	return (
