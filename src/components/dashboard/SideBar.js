@@ -12,7 +12,7 @@ export const SideBar = () => {
 	console.log(!extendSidebar);
 
 	function toggleSidebar() {
-		setExtendSidebar((extended) => !extended);
+		setExtendSidebar((prevState) => !prevState);
 	}
 
 	async function handleLogout() {
