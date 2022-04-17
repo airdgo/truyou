@@ -1,15 +1,15 @@
 import { SidebarData } from "./SidebarData";
-import { FiLogOut } from "react-icons/fi";
-import { FaCircle } from "react-icons/fa";
 import { useAuth } from "../authentication/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { ProfileIcon } from "./SidebarData";
+import { LogoutIcon } from "./SidebarData";
 
 export const SideBar = () => {
-	const { extendSidebar, setExtendSidebar } = useState(true);
+	const [extendSidebar, setExtendSidebar] = useState(false);
 	const { logout } = useAuth();
 	const navigate = useNavigate();
-	console.log(!extendSidebar);
+	const sidebarWidth = extendSidebar ? "w-[15rem]" : "w-16";
 
 	function toggleSidebar() {
 		setExtendSidebar((prevState) => !prevState);
@@ -25,38 +25,33 @@ export const SideBar = () => {
 	}
 
 	return (
-		<nav className="bg-white flex flex-col items-center min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem]">
+		<nav
+			className={
+				"bg-white flex flex-col items-center min-h-screen justify-between py-6 top-0 left-0 fixed " +
+				sidebarWidth
+			}
+			onClick={toggleSidebar}
+		>
 			<ul className="flex flex-col items-center gap-6">
-				<li className="text-black text-2xl">
-					<FaCircle />
-				</li>
-				{!!extendSidebar
-					? SidebarData.map((data, index) => {
-							return (
-								<li key={index} className="text-primary text-xl cursor-pointer">
-									{data.icon}
-								</li>
-							);
-					  })
-					: SidebarData.map((data, index) => {
-							return (
-								<li key={index} className="text-primary cursor-pointer">
-									<span className="text-xl">{data.icon}</span>
-									<p className="text-xs">{data.name}</p>
-								</li>
-							);
-					  })}
+				{SidebarData.map((data, index) => {
+					return (
+						<li
+							key={index}
+							className={
+								data.className
+									? data.className
+									: "text-primary text-xl cursor-pointer"
+							}
+						>
+							<span>{data.icon}</span>
+							{extendSidebar && <p className="text-xs">{data.name}</p>}
+						</li>
+					);
+				})}
 			</ul>
 			<ul className="flex flex-col items-center gap-8">
-				<li className="text-black text-2xl">
-					<FaCircle />
-				</li>
-				<li
-					className="text-primary text-xl cursor-pointer"
-					onClick={handleLogout}
-				>
-					<FiLogOut />
-				</li>
+				<ProfileIcon />
+				<LogoutIcon onClick={handleLogout} />
 			</ul>
 		</nav>
 	);

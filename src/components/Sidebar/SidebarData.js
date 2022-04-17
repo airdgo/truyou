@@ -4,8 +4,14 @@ import { FiFolder } from "react-icons/fi";
 import { RiBitCoinLine } from "react-icons/ri";
 import { RiFileListLine } from "react-icons/ri";
 import { FaCircle } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 
 export const SidebarData = [
+	{
+		name: "",
+		icon: <FaCircle />,
+		className: "text-black text-2xl",
+	},
 	{
 		name: "My profile",
 		icon: <FiUser />,
@@ -61,3 +67,19 @@ export const SidebarData = [
 		icon: <RiBitCoinLine />,
 	},
 ];
+
+export const ProfileIcon = () => {
+	return (
+		<li className="text-black text-2xl">
+			<FaCircle />
+		</li>
+	);
+};
+
+export const LogoutIcon = ({ onClick }) => {
+	return (
+		<li className="text-primary text-xl cursor-pointer" onClick={onClick}>
+			<FiLogOut />
+		</li>
+	);
+};
