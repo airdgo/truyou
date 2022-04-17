@@ -1,4 +1,4 @@
-import { SearchBar } from "./SearchBar";
+import { SearchBar } from "./Searchbar";
 import { useAuth } from "../authentication/AuthProvider";
 import { RiBitCoinLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";

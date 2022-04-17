@@ -1,5 +1,5 @@
 import { Bucketlist } from "./Bucketlist";
-import { SideBar } from "./SideBar";
+import { SideBar } from "./Sidebar";
 import { MoodAndPosts } from "./MoodAndPosts";
 import { Navbar } from "./Navbar";
 

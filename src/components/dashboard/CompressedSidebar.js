@@ -1,4 +1,4 @@
-import { SidebarData } from "./SideBarData";
+import { SidebarData } from "./SidebarData";
 
 export const CompressedSidebar = () => {
 	return (

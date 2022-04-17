@@ -1,4 +1,4 @@
-import { SidebarData } from "./SideBarData";
+import { SidebarData } from "./SidebarData";
 import { FiLogOut } from "react-icons/fi";
 import { FaCircle } from "react-icons/fa";
 import { useAuth } from "../authentication/AuthProvider";
