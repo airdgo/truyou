@@ -5,6 +5,7 @@ import { RiBitCoinLine } from "react-icons/ri";
 import { RiFileListLine } from "react-icons/ri";
 import { FaCircle } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import { useSidebar } from "./Sidebar";
 
 export const SidebarData = [
 	{
@@ -76,9 +77,10 @@ export const ProfileIcon = () => {
 	);
 };
 
-export const LogoutIcon = ({ onClick }) => {
+export const LogoutIcon = () => {
+	const { handleLogout } = useSidebar();
 	return (
-		<li className="text-primary text-xl cursor-pointer" onClick={onClick}>
+		<li className="text-primary text-xl cursor-pointer" onClick={handleLogout}>
 			<FiLogOut />
 		</li>
 	);

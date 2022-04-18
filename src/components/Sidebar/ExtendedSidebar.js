@@ -1,8 +1,13 @@
 import { LogoutIcon, ProfileIcon, SidebarData } from "./SidebarData";
+import { useSidebar } from "./Sidebar";
 
-export const ExtendedSidebar = ({ handleLogout }) => {
+export const ExtendedSidebar = () => {
+	const { toggleSidebar } = useSidebar();
 	return (
-		<nav className="bg-white flex flex-col items-center min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem]">
+		<nav
+			onClick={toggleSidebar}
+			className="bg-white flex flex-col items-center min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem]"
+		>
 			<ul className="flex flex-col items-center gap-6">
 				{SidebarData.map((data, index) => {
 					return (
@@ -22,7 +27,7 @@ export const ExtendedSidebar = ({ handleLogout }) => {
 			</ul>
 			<ul className="flex flex-col items-center gap-8">
 				<ProfileIcon />
-				<LogoutIcon onClick={handleLogout} />
+				<LogoutIcon />
 			</ul>
 		</nav>
 	);
