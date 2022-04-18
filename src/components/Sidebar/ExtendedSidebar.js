@@ -6,9 +6,9 @@ export const ExtendedSidebar = () => {
 	return (
 		<nav
 			onClick={toggleSidebar}
-			className="bg-white flex flex-col items-center min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem]"
+			className="bg-white flex flex-col items-start min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem] pl-[1.33rem]"
 		>
-			<ul className="flex flex-col items-center gap-6">
+			<ul className="flex flex-col items-start gap-6 font-card">
 				{SidebarData.map((data, index) => {
 					return (
 						<li
@@ -19,8 +19,22 @@ export const ExtendedSidebar = () => {
 									: "text-primary text-xl cursor-pointer"
 							}
 						>
-							<span>{data.icon}</span>
-							<p className="text-xs">{data.name}</p>
+							<div className="flex items-center gap-2">
+								<span>{data.icon}</span>
+								<p className="text-xs">{data.name}</p>
+							</div>
+							{data.secondLevel &&
+								data.secondLevel.map((secondLevelData, index) => {
+									return (
+										<div
+											key={index}
+											className="flex items-center gap-2 ml-4 my-2"
+										>
+											<span>{secondLevelData.icon}</span>
+											<p className="text-xs">{secondLevelData.name}</p>
+										</div>
+									);
+								})}
 						</li>
 					);
 				})}
