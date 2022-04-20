@@ -5,13 +5,20 @@ import { RiBitCoinLine } from "react-icons/ri";
 import { RiFileListLine } from "react-icons/ri";
 import { FaCircle } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import { FiSettings } from "react-icons/fi";
+import { FiMap } from "react-icons/fi";
+import { FiGlobe } from "react-icons/fi";
+import { FriendsStatusIcon } from "../../icons/FriendsStatusIcon";
+import { FriendsSettingsIcon } from "../../icons/FriendsSettingsIcon";
+import { PostSettingsIcon } from "../../icons/PostSettingsIcon";
+import { AlbumsIcon } from "../../icons/AlbumsIcon";
 import { useSidebar } from "./Sidebar";
 
 export const SidebarData = [
 	{
 		name: "",
 		icon: <FaCircle />,
-		className: "text-black text-2xl",
+		className: "text-2xl cursor-pointer",
 	},
 	{
 		name: "My profile",
@@ -19,11 +26,11 @@ export const SidebarData = [
 		secondLevel: [
 			{
 				name: "My settings",
-				icon: <FaCircle />,
+				icon: <FiSettings />,
 			},
 			{
 				name: "My status",
-				icon: <FaCircle />,
+				icon: <FiMap />,
 			},
 		],
 	},
@@ -33,15 +40,15 @@ export const SidebarData = [
 		secondLevel: [
 			{
 				name: "All my friends",
-				icon: <FaCircle />,
+				icon: <FiGlobe />,
 			},
 			{
 				name: "Friends settings",
-				icon: <FaCircle />,
+				icon: <FriendsSettingsIcon />,
 			},
 			{
 				name: "Friends status",
-				icon: <FaCircle />,
+				icon: <FriendsStatusIcon />,
 			},
 		],
 	},
@@ -55,11 +62,11 @@ export const SidebarData = [
 		secondLevel: [
 			{
 				name: "Posts settings",
-				icon: <FaCircle />,
+				icon: <PostSettingsIcon />,
 			},
 			{
 				name: "Albums",
-				icon: <FaCircle />,
+				icon: <AlbumsIcon />,
 			},
 		],
 	},
@@ -71,7 +78,7 @@ export const SidebarData = [
 
 export const ProfileIcon = () => {
 	return (
-		<li className="text-black text-2xl">
+		<li className="text-2xl cursor-pointer">
 			<FaCircle />
 		</li>
 	);
@@ -80,7 +87,7 @@ export const ProfileIcon = () => {
 export const LogoutIcon = () => {
 	const { handleLogout } = useSidebar();
 	return (
-		<li className="text-primary text-xl cursor-pointer" onClick={handleLogout}>
+		<li className="text-xl cursor-pointer" onClick={handleLogout}>
 			<FiLogOut />
 		</li>
 	);
