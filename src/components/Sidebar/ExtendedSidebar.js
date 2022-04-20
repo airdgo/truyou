@@ -1,4 +1,4 @@
-import { LogoutIcon, ProfileIcon, SidebarData } from "./SidebarData";
+import { LogoutIcon, ProfileIconExtended, SidebarData } from "./SidebarData";
 import { useSidebar } from "./Sidebar";
 
 export const ExtendedSidebar = () => {
@@ -33,8 +33,8 @@ export const ExtendedSidebar = () => {
 					);
 				})}
 			</ul>
-			<ul className="flex flex-col items-center gap-8">
-				<ProfileIcon />
+			<ul className="flex flex-col items-start gap-8">
+				<ProfileIconExtended />
 				<LogoutIcon />
 			</ul>
 		</nav>

@@ -1,4 +1,4 @@
-import { LogoutIcon, ProfileIcon, SidebarData } from "./SidebarData";
+import { LogoutIcon, ProfileIconCompressed, SidebarData } from "./SidebarData";
 import { useSidebar } from "./Sidebar";
 
 export const CompresssedSidebar = () => {
@@ -26,7 +26,7 @@ export const CompresssedSidebar = () => {
 				})}
 			</ul>
 			<ul className="flex flex-col items-center gap-8">
-				<ProfileIcon />
+				<ProfileIconCompressed />
 				<LogoutIcon />
 			</ul>
 		</nav>
