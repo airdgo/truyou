@@ -1,17 +1,17 @@
-import { FiUser } from "react-icons/fi";
-import { FiUsers } from "react-icons/fi";
-import { FiFolder } from "react-icons/fi";
-import { RiBitCoinLine } from "react-icons/ri";
-import { RiFileListLine } from "react-icons/ri";
 import { FaCircle } from "react-icons/fa";
-import { FiLogOut } from "react-icons/fi";
-import { FiSettings } from "react-icons/fi";
-import { FiMap } from "react-icons/fi";
-import { FiGlobe } from "react-icons/fi";
-import { FriendsStatusIcon } from "../../icons/FriendsStatusIcon";
-import { FriendsSettingsIcon } from "../../icons/FriendsSettingsIcon";
-import { PostSettingsIcon } from "../../icons/PostSettingsIcon";
-import { AlbumsIcon } from "../../icons/AlbumsIcon";
+import { MyProfileIcon } from "../../icons/SidebarIcons/MyProfileIcon";
+import { MyFriendsIcon } from "../../icons/SidebarIcons/MyFriendsIcon";
+import { PostsIcon } from "../../icons/SidebarIcons/PostsIcon";
+import { CryptoIcon } from "../../icons/SidebarIcons/CryptoIcon";
+import { BucketListIcon } from "../../icons/SidebarIcons/BucketListIcon";
+import { LogoutIcon } from "../../icons/SidebarIcons/LogoutIcon";
+import { MySettingsIcon } from "../../icons/SidebarIcons/MySettingsIcon";
+import { MyStatusIcon } from "../../icons/SidebarIcons/MyStatusIcon";
+import { AllMyFriendsIcon } from "../../icons/SidebarIcons/AllMyFriendsIcon";
+import { FriendsStatusIcon } from "../../icons/SidebarIcons/FriendsStatusIcon";
+import { FriendsSettingsIcon } from "../../icons/SidebarIcons/FriendsSettingsIcon";
+import { PostSettingsIcon } from "../../icons/SidebarIcons/PostSettingsIcon";
+import { AlbumsIcon } from "../../icons/SidebarIcons/AlbumsIcon";
 import { useSidebar } from "./Sidebar";
 import { useAuth } from "../authentication/AuthProvider";
 
@@ -23,25 +23,25 @@ export const SidebarData = [
 	},
 	{
 		name: "My profile",
-		icon: <FiUser />,
+		icon: <MyProfileIcon />,
 		secondLevel: [
 			{
 				name: "My settings",
-				icon: <FiSettings />,
+				icon: <MySettingsIcon />,
 			},
 			{
 				name: "My status",
-				icon: <FiMap />,
+				icon: <MyStatusIcon />,
 			},
 		],
 	},
 	{
 		name: "My friends",
-		icon: <FiUsers />,
+		icon: <MyFriendsIcon />,
 		secondLevel: [
 			{
 				name: "All my friends",
-				icon: <FiGlobe />,
+				icon: <AllMyFriendsIcon />,
 			},
 			{
 				name: "Friends settings",
@@ -55,11 +55,11 @@ export const SidebarData = [
 	},
 	{
 		name: "Bucket list",
-		icon: <RiFileListLine />,
+		icon: <BucketListIcon />,
 	},
 	{
 		name: "Posts",
-		icon: <FiFolder />,
+		icon: <PostsIcon />,
 		secondLevel: [
 			{
 				name: "Posts settings",
@@ -73,7 +73,7 @@ export const SidebarData = [
 	},
 	{
 		name: "Crypto",
-		icon: <RiBitCoinLine />,
+		icon: <CryptoIcon />,
 	},
 ];
 
@@ -98,11 +98,11 @@ export const ProfileIconExtended = () => {
 	);
 };
 
-export const LogoutIcon = () => {
+export const SidebarLogout = () => {
 	const { handleLogout } = useSidebar();
 	return (
 		<li className="text-xl cursor-pointer" onClick={handleLogout}>
-			<FiLogOut />
+			<LogoutIcon />
 		</li>
 	);
 };
