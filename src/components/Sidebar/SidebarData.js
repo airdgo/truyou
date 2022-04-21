@@ -12,15 +12,11 @@ import { FriendsStatusIcon } from "../../icons/SidebarIcons/FriendsStatusIcon";
 import { FriendsSettingsIcon } from "../../icons/SidebarIcons/FriendsSettingsIcon";
 import { PostSettingsIcon } from "../../icons/SidebarIcons/PostSettingsIcon";
 import { AlbumsIcon } from "../../icons/SidebarIcons/AlbumsIcon";
+import { CloseSidebarIcon } from "../../icons/SidebarIcons/CloseSidebarIcon";
 import { useSidebar } from "./Sidebar";
 import { useAuth } from "../authentication/AuthProvider";
 
 export const SidebarData = [
-	{
-		name: "",
-		icon: <FaCircle />,
-		className: "text-2xl cursor-pointer",
-	},
 	{
 		name: "My profile",
 		icon: <MyProfileIcon />,
@@ -76,6 +72,20 @@ export const SidebarData = [
 		icon: <CryptoIcon />,
 	},
 ];
+
+export const LogoIcon = () => {
+	const { sidebarExtended } = useSidebar();
+	return sidebarExtended ? (
+		<li className="text-2xl flex justify-between items-center w-full">
+			<FaCircle className="cursor-pointer" />
+			<CloseSidebarIcon />
+		</li>
+	) : (
+		<li className="text-2xl">
+			<FaCircle className="cursor-pointer" />
+		</li>
+	);
+};
 
 export const ProfileIconCompressed = () => {
 	return (

@@ -6,6 +6,7 @@ export const CloseSidebarIcon = () => {
 			viewBox="0 0 24 24"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			className="cursor-pointer"
 		>
 			<path
 				d="M8 7L3 12L8 17"

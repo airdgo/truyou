@@ -1,4 +1,9 @@
-import { SidebarLogout, ProfileIconExtended, SidebarData } from "./SidebarData";
+import {
+	SidebarLogout,
+	ProfileIconExtended,
+	SidebarData,
+	LogoIcon,
+} from "./SidebarData";
 import { useSidebar } from "./Sidebar";
 
 export const ExtendedSidebar = () => {
@@ -6,13 +11,14 @@ export const ExtendedSidebar = () => {
 	return (
 		<nav
 			onClick={toggleSidebar}
-			className="bg-white flex flex-col items-start min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem] pl-[1.33rem]"
+			className="bg-white flex flex-col items-start min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem] pl-[1.33rem] pr-2"
 		>
-			<ul className="flex flex-col items-start gap-6 font-card text-primary text-xl">
+			<ul className="flex flex-col items-start gap-6 font-card text-primary text-xl w-full">
+				<LogoIcon />
 				{SidebarData.map((data, index) => {
 					return (
-						<li key={index} className={data.className && data.className}>
-							<div className="flex items-center gap-2 cursor-pointer">
+						<li key={index}>
+							<div className="flex items-center gap-2 cursor-pointer max-w-max">
 								<span>{data.icon}</span>
 								<p className="text-xs">{data.name}</p>
 							</div>
