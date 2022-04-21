@@ -21,7 +21,7 @@ export const FriendsStatusIcon = () => {
 				strokeLinecap="round"
 				strokeLinejoin="round"
 			/>
-			<g clip-path="url(#clip0_115_2269)">
+			<g clipPath="url(#clip0_115_2269)">
 				<path
 					d="M11.667 12.8005V23.4671L16.3337 20.8005L21.667 23.4671L26.3337 20.8005V10.1338L21.667 12.8005L16.3337 10.1338L11.667 12.8005Z"
 					stroke="#150052"
