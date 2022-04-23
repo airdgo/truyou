@@ -102,7 +102,7 @@ export const ProfileIconExtended = () => {
 			<FaCircle className="cursor-pointer" />
 			<div>
 				<p className="text-base">{currentUser.attributes.given_name}</p>
-				<p className="text-2xs leading-none">{currentUser.attributes.email}</p>
+				<p className="text-2xs leading-3">{currentUser.attributes.email}</p>
 			</div>
 		</li>
 	);
