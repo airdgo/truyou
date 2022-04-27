@@ -1,8 +1,8 @@
 import { SearchBar } from "./Searchbar";
 import { useAuth } from "../authentication/AuthProvider";
-import { RiBitCoinLine } from "react-icons/ri";
-import { FiBell } from "react-icons/fi";
-import { FiMail } from "react-icons/fi";
+import { CryptoIcon } from "../../icons/SidebarIcons/CryptoIcon";
+import { BellIcon } from "../../icons/NavbarIcons/BellIcon";
+import { MessageIcon } from "../../icons/NavbarIcons/MessageIcon";
 
 export const Navbar = () => {
 	const { currentUser } = useAuth();
@@ -17,13 +17,13 @@ export const Navbar = () => {
 				</div>
 				<ul className="text-white flex text-xl gap-4 mx-20">
 					<li className="cursor-pointer">
-						<RiBitCoinLine />
+						<CryptoIcon stroke={"#FFFF"} />
 					</li>
 					<li className="cursor-pointer">
-						<FiBell />
+						<BellIcon />
 					</li>
 					<li className="cursor-pointer">
-						<FiMail />
+						<MessageIcon />
 					</li>
 				</ul>
 			</div>
