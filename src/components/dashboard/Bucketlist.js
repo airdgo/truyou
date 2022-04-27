@@ -5,7 +5,9 @@ import { PrimaryButton } from "../PrimaryButton";
 export const Bucketlist = () => {
 	return (
 		<Section
-			className={"mr-4 min-h-[88vh] max-w-[15rem] fixed right-0 top-[5rem]"}
+			className={
+				"mr-4 h-auto max-w-[15rem] fixed right-0 top-0 bottom-0 mb-4 mt-20"
+			}
 		>
 			<header className="flex justify-between items-center">
 				<p className="text-neutralDark text-xs">My Bucket list</p>
