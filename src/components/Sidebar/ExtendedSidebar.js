@@ -4,7 +4,7 @@ import {
 	SidebarData,
 	LogoIcon,
 } from "./SidebarData";
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "../dashboard/Dashboard";
 
 export const ExtendedSidebar = () => {
 	const { toggleSidebar } = useSidebar();

@@ -13,7 +13,7 @@ import { FriendsSettingsIcon } from "../../icons/SidebarIcons/FriendsSettingsIco
 import { PostSettingsIcon } from "../../icons/SidebarIcons/PostSettingsIcon";
 import { AlbumsIcon } from "../../icons/SidebarIcons/AlbumsIcon";
 import { CloseSidebarIcon } from "../../icons/SidebarIcons/CloseSidebarIcon";
-import { useSidebar } from "./Sidebar";
+import { useSidebar } from "../dashboard/Dashboard";
 import { useAuth } from "../authentication/AuthProvider";
 
 export const SidebarData = [
