@@ -1,3 +1,4 @@
+import { DashboardContainer } from "./DashboardContainer";
 import { Bucketlist } from "./Bucketlist";
 import { SideBar } from "../Sidebar/Sidebar";
 import { MoodAndPosts } from "./MoodAndPosts";
@@ -37,12 +38,12 @@ export const Dashboard = () => {
 
 	return (
 		<SidebarContext.Provider value={value}>
-			<div className="bg-background min-h-screen relative overflow-auto pt-20 pl-20 pb-4 pr-[17rem]">
+			<DashboardContainer>
 				<Navbar />
 				<SideBar />
 				<MoodAndPosts />
 				<Bucketlist />
-			</div>
+			</DashboardContainer>
 		</SidebarContext.Provider>
 	);
 };
