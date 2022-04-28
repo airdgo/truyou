@@ -11,7 +11,7 @@ export const ExtendedSidebar = () => {
 	return (
 		<nav
 			onClick={toggleSidebar}
-			className="bg-white flex flex-col items-start min-h-screen justify-between py-6 top-0 left-0 fixed w-[15rem] pl-[1.33rem] pr-2"
+			className="bg-white flex flex-col items-start min-h-screen justify-between py-6 top-0 left-0 fixed w-[14rem] pl-[1.33rem] pr-2"
 		>
 			<ul className="flex flex-col items-start gap-6 font-card text-primary text-xl w-full">
 				<LogoIcon />
