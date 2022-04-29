@@ -1,5 +1,5 @@
 import { DashboardContainer } from "./DashboardContainer";
-import { Bucketlist } from "./Bucketlist";
+import { Bucketlist } from "../Bucketlist/Bucketlist";
 import { SideBar } from "../Sidebar/Sidebar";
 import { MoodAndPosts } from "./MoodAndPosts";
 import { Navbar } from "./Navbar";
