@@ -1,10 +1,10 @@
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { ThreeDotsIcon } from "../../icons/MoodsAndPostsIcons/ThreeDotsIcon";
 import { PrimaryButton } from "../PrimaryButton";
-import { FiLayers } from "react-icons/fi";
-import { BiGridAlt } from "react-icons/bi";
+import { LayersIcon } from "../../icons/MoodsAndPostsIcons/LayersIcon";
+import { GridIcon } from "../../icons/MoodsAndPostsIcons/GridIcon";
 import { useAuth } from "../authentication/AuthProvider";
-import { ImageIcon } from "../../icons/ImageIcon";
-import { Section } from "./Section";
+import { ImageIcon } from "../../icons/MoodsAndPostsIcons/ImageIcon";
+import { Section } from "../Section";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
@@ -14,20 +14,16 @@ export const Posts = () => {
 			<header className="flex flex-col gap-8">
 				<div className="text-neutralDark flex justify-between items-center">
 					<div className="text-xs">Posts</div>
-					<HiOutlineDotsHorizontal className="text-xl cursor-pointer" />
+					<ThreeDotsIcon />
 				</div>
 				<div className="flex items-center justify-between">
 					<div className="flex gap-4">
 						<PrimaryButton bgColor="bg-accent">Add new post</PrimaryButton>
 						<PrimaryButton bgColor="bg-accent">Add new friend</PrimaryButton>
 					</div>
-					<div className="flex text-xl text-neutralDark gap-3">
-						<div className="bg-neutral p-1 rounded-md cursor-pointer">
-							<BiGridAlt />
-						</div>
-						<div className="bg-neutral p-1 rounded-md cursor-pointer">
-							<FiLayers />
-						</div>
+					<div className="flex gap-3">
+						<GridIcon />
+						<LayersIcon />
 					</div>
 				</div>
 			</header>

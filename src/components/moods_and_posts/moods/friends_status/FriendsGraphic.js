@@ -1,9 +1,8 @@
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { GenerateLegend } from "./GenerateLegend";
 
-export const FriendsStatus = () => {
+export const FriendsGraphic = () => {
 	ChartJS.register(ArcElement, Tooltip, Legend);
 
 	const data = {
@@ -46,20 +45,13 @@ export const FriendsStatus = () => {
 			},
 		},
 	};
-
 	return (
-		<section>
-			<header className="text-neutralDark flex justify-between items-center">
-				<div className="text-2xs">Friends emotions status</div>
-				<HiOutlineDotsHorizontal className="text-xl cursor-pointer" />
-			</header>
-			<div className="flex w-full items-center justify-between min-h-[90%] pr-4">
-				<GenerateLegend data={data} />
+		<div className="flex w-full items-center justify-between min-h-[90%] pr-4">
+			<GenerateLegend data={data} />
 
-				<div className="max-w-[8rem]">
-					<Doughnut data={data} options={options} />
-				</div>
+			<div className="max-w-[8rem]">
+				<Doughnut data={data} options={options} />
 			</div>
-		</section>
+		</div>
 	);
 };

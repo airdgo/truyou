@@ -1,4 +1,4 @@
-import { FiSearch } from "react-icons/fi";
+import { SearchIcon } from "../../icons/NavbarIcons/SearchIcon";
 
 export const SearchBar = () => {
 	return (
@@ -9,7 +9,7 @@ export const SearchBar = () => {
 				className="bg-primaryLight text-white text-[10px] rounded-full placeholder-white py-4 pl-12
 							 font-search w-full focus:shadow-outline focus:outline-none appearance-none outline-none"
 			/>
-			<FiSearch className="text-white text-2xl absolute top-3 left-4" />
+			<SearchIcon className="absolute top-3 left-4" />
 		</form>
 	);
 };

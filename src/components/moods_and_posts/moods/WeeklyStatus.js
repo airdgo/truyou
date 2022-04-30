@@ -11,18 +11,18 @@ export const WeeklyStatus = () => {
 			</div>
 
 			<div>
-				<ul className="flex gap-10">
+				<ul className="flex gap-14">
 					<li>
 						<p className="text-neutralDark font-light text-2xs">Posts</p>
-						<span className="text-primary text-4xl font-semibold">0</span>
+						<span className="text-primary text-5xl font-semibold">0</span>
 					</li>
 					<li>
 						<p className="text-neutralDark font-light text-2xs">Crypto</p>
-						<span className="text-primary text-4xl font-semibold">0</span>
+						<span className="text-primary text-5xl font-semibold">0</span>
 					</li>
 					<li>
 						<p className="text-neutralDark font-light text-2xs">Friends</p>
-						<span className="text-primary text-4xl font-semibold">0</span>
+						<span className="text-primary text-5xl font-semibold">0</span>
 					</li>
 				</ul>
 			</div>

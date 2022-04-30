@@ -1,15 +1,49 @@
-import { Bucketlist } from "./Bucketlist";
-import { LeftNavbar } from "./LeftNavbar";
-import { MoodAndPosts } from "./MoodAndPosts";
-import { TopNavbar } from "./TopNavbar";
+import { DashboardContainer } from "./DashboardContainer";
+import { Bucketlist } from "../bucketlist/Bucketlist";
+import { SideBar } from "../sidebar/Sidebar";
+import { MoodAndPosts } from "../moods_and_posts/MoodAndPosts";
+import { Navbar } from "../navbar/Navbar";
+import { useAuth } from "../authentication/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import { useState, createContext, useContext } from "react";
+
+const SidebarContext = createContext();
+
+export function useSidebar() {
+	return useContext(SidebarContext);
+}
 
 export const Dashboard = () => {
+	const [sidebarExtended, setSidebarExtended] = useState(false);
+	const { logout } = useAuth();
+	const navigate = useNavigate();
+
+	function toggleSidebar() {
+		setSidebarExtended((prevState) => !prevState);
+	}
+
+	async function handleLogout() {
+		try {
+			await logout();
+			navigate("/login");
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+	const value = {
+		sidebarExtended,
+		toggleSidebar,
+		handleLogout,
+	};
+
 	return (
-		<div className="bg-background min-h-screen relative overflow-auto pt-20 pl-20 pb-4 pr-[17rem]">
-			<TopNavbar />
-			<LeftNavbar />
-			<MoodAndPosts />
-			<Bucketlist />
-		</div>
+		<SidebarContext.Provider value={value}>
+			<DashboardContainer>
+				<Navbar />
+				<SideBar />
+				<MoodAndPosts />
+				<Bucketlist />
+			</DashboardContainer>
+		</SidebarContext.Provider>
 	);
 };

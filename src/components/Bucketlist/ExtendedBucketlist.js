@@ -1,16 +1,14 @@
-import { Section } from "./Section";
-import { AiOutlinePlus } from "react-icons/ai";
+import { Section } from "../Section";
 import { PrimaryButton } from "../PrimaryButton";
+import { MakeWishSmallIcon } from "../../icons/BucketlistIcons/MakeWishSmallIcon";
 
-export const Bucketlist = () => {
+export const ExtendedBucketlist = () => {
 	return (
-		<Section
-			className={"mr-4 min-h-[88vh] max-w-[15rem] fixed right-0 top-[5rem]"}
-		>
+		<Section className="mr-4 h-auto fixed right-0 top-0 bottom-0 mb-4 mt-20 w-60">
 			<header className="flex justify-between items-center">
-				<p className="text-neutralDark text-xs">My Bucket list</p>
+				<p className="text-neutralDark text-2xs">My Bucket list</p>
 				<button className="bg-neutral rounded-full p-1">
-					<AiOutlinePlus className="text-xl text-neutralDark" />
+					<MakeWishSmallIcon />
 				</button>
 			</header>
 

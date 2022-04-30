@@ -8,7 +8,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-export const EmotionStatus = () => {
+export const PersonalGraphic = () => {
 	ChartJS.register(
 		CategoryScale,
 		LinearScale,
@@ -75,17 +75,9 @@ export const EmotionStatus = () => {
 			},
 		],
 	};
-
 	return (
-		<section>
-			<header className="text-neutralDark">
-				<p className="text-2xs">Emotions personal status</p>
-				<h2 className="text-xl font-bold text-primary mt-4">No mood here :(</h2>
-			</header>
-
-			<div className="max-h-[7rem] mt-4">
-				<Line options={options} data={data} />
-			</div>
-		</section>
+		<div className="max-h-[7rem] mt-4">
+			<Line options={options} data={data} />
+		</div>
 	);
 };
