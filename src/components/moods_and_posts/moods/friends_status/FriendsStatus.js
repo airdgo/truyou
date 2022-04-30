@@ -1,4 +1,4 @@
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { ThreeDotsIcon } from "../../../../icons/MoodsAndPostsIcons/ThreeDotsIcon";
 import { FriendsGraphic } from "./FriendsGraphic";
 
 export const FriendsStatus = () => {
@@ -6,7 +6,7 @@ export const FriendsStatus = () => {
 		<section>
 			<header className="text-neutralDark flex justify-between items-center">
 				<div className="text-2xs">Friends emotions status</div>
-				<HiOutlineDotsHorizontal className="text-xl cursor-pointer" />
+				<ThreeDotsIcon />
 			</header>
 			<FriendsGraphic />
 		</section>
