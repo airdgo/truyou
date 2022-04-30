@@ -1,4 +1,5 @@
-export const MakeWishIcon = ({ height = "69", width = "69" }) => {
+export const MakeWishIcon = (props) => {
+	const { height = "69", width = "69", className = "cursor-pointer" } = props;
 	return (
 		<svg
 			width={width}
@@ -6,6 +7,7 @@ export const MakeWishIcon = ({ height = "69", width = "69" }) => {
 			viewBox="0 0 69 69"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			className={className}
 		>
 			<circle cx="34.5" cy="34.5" r="34.5" fill="#F5F5F5" />
 			<path
