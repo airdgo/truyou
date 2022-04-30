@@ -1,6 +1,6 @@
 import { DashboardContainer } from "./DashboardContainer";
-import { Bucketlist } from "../bucketlist/Bucketlist";
-import { SideBar } from "../sidebar/Sidebar";
+import { Bucketlist } from "../Bucketlist/Bucketlist";
+import { SideBar } from "../Sidebar/Sidebar";
 import { MoodAndPosts } from "../moods_and_posts/MoodAndPosts";
 import { Navbar } from "../navbar/Navbar";
 import { useAuth } from "../authentication/AuthProvider";
