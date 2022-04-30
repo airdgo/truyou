@@ -4,7 +4,7 @@ import { FiLayers } from "react-icons/fi";
 import { BiGridAlt } from "react-icons/bi";
 import { useAuth } from "../authentication/AuthProvider";
 import { ImageIcon } from "../../icons/ImageIcon";
-import { Section } from "./Section";
+import { Section } from "../Section";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();

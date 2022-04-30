@@ -1,4 +1,4 @@
-import { Section } from "../dashboard/Section";
+import { Section } from "../Section";
 import { MakeWishIcon } from "../../icons/BucketlistIcons/MakeWishIcon";
 
 export const CompressedBucketlist = () => {

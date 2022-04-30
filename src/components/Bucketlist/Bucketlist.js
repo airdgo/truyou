@@ -1,6 +1,6 @@
 import { useSidebar } from "../dashboard/Dashboard";
-import { CompressedBucketlist } from "../Bucketlist/CompressedBucketlist";
-import { ExtendedBucketlist } from "../Bucketlist/ExtendedBucketlist";
+import { CompressedBucketlist } from "./CompressedBucketlist";
+import { ExtendedBucketlist } from "./ExtendedBucketlist";
 
 export const Bucketlist = () => {
 	const { sidebarExtended } = useSidebar();

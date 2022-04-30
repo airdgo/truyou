@@ -1,4 +1,4 @@
-import { Moods } from "./Moods";
+import { Moods } from "./moods/Moods";
 import { Posts } from "./Posts";
 export const MoodAndPosts = () => {
 	return (

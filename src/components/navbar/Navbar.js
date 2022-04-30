@@ -3,7 +3,7 @@ import { useAuth } from "../authentication/AuthProvider";
 import { CryptoIcon } from "../../icons/SidebarIcons/CryptoIcon";
 import { BellIcon } from "../../icons/NavbarIcons/BellIcon";
 import { MessageIcon } from "../../icons/NavbarIcons/MessageIcon";
-import { useSidebar } from "./Dashboard";
+import { useSidebar } from "../dashboard/Dashboard";
 
 export const Navbar = () => {
 	const { currentUser } = useAuth();

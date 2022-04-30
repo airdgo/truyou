@@ -1,4 +1,4 @@
-import { Section } from "../dashboard/Section";
+import { Section } from "../Section";
 import { PrimaryButton } from "../PrimaryButton";
 import { MakeWishSmallIcon } from "../../icons/BucketlistIcons/MakeWishSmallIcon";
 
