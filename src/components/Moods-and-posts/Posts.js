@@ -5,9 +5,15 @@ import { GridIcon } from "../../icons/MoodsAndPostsIcons/GridIcon";
 import { useAuth } from "../authentication/AuthProvider";
 import { ImageIcon } from "../../icons/MoodsAndPostsIcons/ImageIcon";
 import { Section } from "../Section";
+import { Modal } from "../Newpost/Modal";
+import { useState } from "react";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const closeModal = () => setModalOpen(false);
+	const openModal = () => setModalOpen(true);
 
 	return (
 		<Section>
@@ -18,7 +24,9 @@ export const Posts = () => {
 				</div>
 				<div className="flex items-center justify-between">
 					<div className="flex gap-4">
-						<PrimaryButton bgColor="bg-accent">Add new post</PrimaryButton>
+						<PrimaryButton bgColor="bg-accent" onClick={() => openModal()}>
+							Add new post
+						</PrimaryButton>
 						<PrimaryButton bgColor="bg-accent">Add new friend</PrimaryButton>
 					</div>
 					<div className="flex gap-3">
@@ -27,6 +35,8 @@ export const Posts = () => {
 					</div>
 				</div>
 			</header>
+
+			{modalOpen && <Modal modalOpen={modalOpen} handleClose={closeModal} />}
 
 			<div className="flex items-center justify-center min-h-[80%] text-center text-neutralDarker flex-col  gap-6">
 				<ImageIcon />
