@@ -4,7 +4,7 @@ import {
 	SidebarData,
 	LogoIcon,
 } from "./SidebarData";
-import { useSidebar } from "../dashboard/Dashboard";
+import { useSidebar } from "../Dashboard/Dashboard";
 
 export const CompresssedSidebar = () => {
 	const { toggleSidebar } = useSidebar();

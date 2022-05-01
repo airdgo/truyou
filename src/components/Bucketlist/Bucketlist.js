@@ -1,4 +1,4 @@
-import { useSidebar } from "../dashboard/Dashboard";
+import { useSidebar } from "../Dashboard/Dashboard";
 import { CompressedBucketlist } from "./CompressedBucketlist";
 import { ExtendedBucketlist } from "./ExtendedBucketlist";
 
