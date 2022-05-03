@@ -2,7 +2,7 @@ export const Backdrop = ({ children, onClick }) => {
 	return (
 		<div
 			onClick={onClick}
-			className="absolute top-0 left-0 h-full w-full bg-[#000000e1] flex items-center justify-center"
+			className="fixed top-0 left-0 grid h-screen w-full place-items-center bg-[#000000e1]"
 		>
 			{children}
 		</div>
