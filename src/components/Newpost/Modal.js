@@ -63,6 +63,7 @@ export const Modal = ({ handleClose, modalOpen }) => {
 					<h1 className="text-4xl font-semibold">{userName},</h1>
 					<p className="mt-2">How are you feeling today?</p>
 				</div>
+
 				<p className="my-8">1. Please, choose your mood</p>
 				<ul className="flex gap-8">
 					{moods.map((mood) => {
@@ -73,12 +74,8 @@ export const Modal = ({ handleClose, modalOpen }) => {
 							"cursor-pointer rounded px-4 py-2 " + selectedStyle;
 
 						return (
-							<li
-								key={mood.id}
-								className={className}
-								onClick={() => handleSelectedMood(mood.id)}
-							>
-								{mood.mood}
+							<li key={mood.id} onClick={() => handleSelectedMood(mood.id)}>
+								<button className={className}>{mood.mood}</button>
 							</li>
 						);
 					})}
@@ -86,7 +83,7 @@ export const Modal = ({ handleClose, modalOpen }) => {
 				<button className="absolute right-16 top-10" onClick={handleClose}>
 					Close
 				</button>
-				<NextStepIcon className="absolute bottom-44 right-16 cursor-pointer fill-neutral stroke-neutralDark hover:fill-accent hover:stroke-white" />
+				<NextStepIcon className="cursor-pointer fill-neutral stroke-neutralDark hover:fill-accent hover:stroke-white" />
 			</div>
 		</Backdrop>,
 		document.getElementById("portal")
