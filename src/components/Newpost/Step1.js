@@ -1,6 +1,6 @@
 import { ModalContainer } from "./ModalContainer";
 import { ChooseMood } from "./ChooseMood";
-import { NextStepIcon } from "../../icons/MoodsAndPostsIcons/NextStepIcon";
+import { NextStepButton } from "./NextStepButton";
 import { useAuth } from "../authentication/AuthProvider";
 
 export const Step1 = ({ handleClose }) => {
@@ -21,8 +21,7 @@ export const Step1 = ({ handleClose }) => {
 			<button className="absolute right-16 top-10" onClick={handleClose}>
 				Close
 			</button>
-
-			<NextStepIcon className="cursor-pointer fill-neutral stroke-neutralDark hover:fill-accent hover:stroke-white" />
+			<NextStepButton />
 		</ModalContainer>
 	);
 };

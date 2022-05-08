@@ -1,5 +1,5 @@
 import { ModalContainer } from "./ModalContainer";
-import { NextStepIcon } from "../../icons/MoodsAndPostsIcons/NextStepIcon";
+import { NextStepButton } from "./NextStepButton";
 import { InsertImageButton } from "./InsertImageButton";
 import { InsertTextButton } from "./InsertTextButton";
 import { InsertVideoButton } from "./InsertVideoButton";
@@ -29,7 +29,7 @@ export const Step2 = ({ handleClose }) => {
 				<InsertVideoButton />
 			</div>
 
-			<NextStepIcon className="cursor-pointer fill-neutral stroke-neutralDark hover:fill-accent hover:stroke-white" />
+			<NextStepButton />
 		</ModalContainer>
 	);
 };
