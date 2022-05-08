@@ -1,4 +1,4 @@
-import { NextStepIcon } from "../../icons/MoodsAndPostsIcons/NextStepIcon";
+import { NextStepIcon } from "../../../icons/MoodsAndPostsIcons/NextStepIcon";
 
 export const NextStepButton = () => {
 	return (

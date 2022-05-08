@@ -1,4 +1,4 @@
-import { InsertImageIcon } from "../../icons/MoodsAndPostsIcons/InsertImageIcon";
+import { InsertImageIcon } from "../../../icons/MoodsAndPostsIcons/InsertImageIcon";
 
 export const InsertImageButton = () => {
 	return (

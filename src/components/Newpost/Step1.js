@@ -1,6 +1,6 @@
 import { ModalContainer } from "./ModalContainer";
 import { ChooseMood } from "./ChooseMood";
-import { NextStepButton } from "./NextStepButton";
+import { NextStepButton } from "./Buttons/NextStepButton";
 import { useAuth } from "../authentication/AuthProvider";
 
 export const Step1 = ({ handleClose }) => {

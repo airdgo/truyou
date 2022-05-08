@@ -1,8 +1,8 @@
 import { ModalContainer } from "./ModalContainer";
-import { NextStepButton } from "./NextStepButton";
-import { InsertImageButton } from "./InsertImageButton";
-import { InsertTextButton } from "./InsertTextButton";
-import { InsertVideoButton } from "./InsertVideoButton";
+import { NextStepButton } from "./Buttons/NextStepButton";
+import { InsertImageButton } from "./Buttons/InsertImageButton";
+import { InsertTextButton } from "./Buttons/InsertTextButton";
+import { InsertVideoButton } from "./Buttons/InsertVideoButton";
 import { useAuth } from "../authentication/AuthProvider";
 
 export const Step2 = ({ handleClose }) => {
