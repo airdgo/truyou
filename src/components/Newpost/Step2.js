@@ -4,17 +4,18 @@ import { InsertImageButton } from "./Buttons/InsertImageButton";
 import { InsertTextButton } from "./Buttons/InsertTextButton";
 import { InsertVideoButton } from "./Buttons/InsertVideoButton";
 import { useAuth } from "../authentication/AuthProvider";
+import { PreviousStepButton } from "./Buttons/PreviousStepButton";
 
 export const Step2 = ({ handleClose }) => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
 
 	return (
-		<ModalContainer>
-			<div className="mb-12">
+		<ModalContainer padding="pl-28 pr-12">
+			<div className="mb-16">
 				<h1 className="text-4xl font-semibold">
-					{userName},{" "}
-					<span className=" text-base font-normal">is feeling surprised</span>
+					{userName},
+					<span className=" text-base font-normal"> is feeling surprised</span>
 				</h1>
 			</div>
 
@@ -28,7 +29,7 @@ export const Step2 = ({ handleClose }) => {
 				<InsertTextButton />
 				<InsertVideoButton />
 			</div>
-
+			<PreviousStepButton />
 			<NextStepButton />
 		</ModalContainer>
 	);

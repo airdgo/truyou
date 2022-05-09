@@ -1,4 +1,4 @@
-export const NextStepIcon = ({ className }) => {
+export const ChangeStepIcon = ({ className }) => {
 	return (
 		<svg
 			width="51"
