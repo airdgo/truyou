@@ -5,10 +5,12 @@ import { InsertTextButton } from "./Buttons/InsertTextButton";
 import { InsertVideoButton } from "./Buttons/InsertVideoButton";
 import { useAuth } from "../authentication/AuthProvider";
 import { PreviousStepButton } from "./Buttons/PreviousStepButton";
+import { useModal } from "./Modal";
 
 export const Step2 = ({ handleClose }) => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
+	const { nextStep, previousStep } = useModal();
 
 	return (
 		<ModalContainer padding="pl-28 pr-12">
@@ -29,8 +31,8 @@ export const Step2 = ({ handleClose }) => {
 				<InsertTextButton />
 				<InsertVideoButton />
 			</div>
-			<PreviousStepButton />
-			<NextStepButton />
+			<PreviousStepButton onClick={() => previousStep()} />
+			<NextStepButton onClick={() => nextStep()} />
 		</ModalContainer>
 	);
 };
