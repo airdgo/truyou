@@ -1,50 +1,7 @@
-import { useState } from "react";
+import { useModal } from "./Modal";
 
 export const ChooseMood = () => {
-	const [moods, setMoods] = useState([
-		{
-			id: 0,
-			mood: "happy",
-			isSelected: false,
-		},
-		{
-			id: 1,
-			mood: "sad",
-			isSelected: false,
-		},
-		{
-			id: 2,
-			mood: "angry",
-			isSelected: false,
-		},
-		{
-			id: 3,
-			mood: "scared",
-			isSelected: false,
-		},
-		{
-			id: 4,
-			mood: "surprised",
-			isSelected: false,
-		},
-		{
-			id: 5,
-			mood: "disgusted",
-			isSelected: false,
-		},
-	]);
-
-	const handleSelectedMood = (id) => {
-		const newMoods = moods.map((mood) => {
-			return mood.id === id
-				? { ...mood, isSelected: !mood.isSelected }
-				: mood.isSelected
-				? { ...mood, isSelected: !mood.isSelected }
-				: mood;
-		});
-
-		setMoods(newMoods);
-	};
+	const { moods, handleSelectedMood } = useModal();
 
 	return (
 		<ul className="flex gap-8">

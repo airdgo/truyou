@@ -10,14 +10,17 @@ import { useModal } from "./Modal";
 export const Step2 = ({ handleClose }) => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { nextStep, previousStep } = useModal();
+	const { nextStep, previousStep, currentMood } = useModal();
 
 	return (
 		<ModalContainer padding="pl-28 pr-12">
 			<div className="mb-16">
 				<h1 className="text-4xl font-semibold">
 					{userName},
-					<span className=" text-base font-normal"> is feeling surprised</span>
+					<span className=" text-base font-normal">
+						{" "}
+						is feeling {currentMood}
+					</span>
 				</h1>
 			</div>
 
