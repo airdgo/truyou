@@ -7,7 +7,8 @@ import { useModal } from "./Modal";
 export const Step1 = ({ handleClose }) => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { nextStep } = useModal();
+	const { nextStep, currentMood } = useModal();
+	const isDisabled = currentMood.length === 0 ? true : false;
 
 	return (
 		<ModalContainer>
@@ -23,7 +24,7 @@ export const Step1 = ({ handleClose }) => {
 			<button className="absolute right-16 top-10" onClick={handleClose}>
 				Close
 			</button>
-			<NextStepButton onClick={() => nextStep()} />
+			<NextStepButton disabled={isDisabled} onClick={() => nextStep()} />
 		</ModalContainer>
 	);
 };
