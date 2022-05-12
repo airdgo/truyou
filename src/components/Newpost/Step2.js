@@ -6,12 +6,12 @@ import { InsertVideoButton } from "./Buttons/InsertVideoButton";
 import { useAuth } from "../authentication/AuthProvider";
 import { PreviousStepButton } from "./Buttons/PreviousStepButton";
 import { useModal } from "./Modal";
+import { PrimaryButton } from "../PrimaryButton";
 
 export const Step2 = ({ handleClose }) => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { nextStep, previousStep, currentMood, imagesURLs, onImageChange } =
-		useModal();
+	const { previousStep, currentMood, imagesURLs, onImageChange } = useModal();
 
 	return (
 		<ModalContainer padding="pl-28 pr-12">
@@ -37,20 +37,31 @@ export const Step2 = ({ handleClose }) => {
 				<InsertVideoButton />
 			</div>
 
-			<div className="mt-6 grid">
-				{imagesURLs.map((imageSrc) => (
-					<div className="max-w-sm">
-						<img
-							src={imageSrc}
-							alt="Something went wrong with your file"
-							className="rounded-xl"
-						/>
+			{imagesURLs[0] && (
+				<section className="flex">
+					<div className="mt-6 grid">
+						{imagesURLs.map((imageSrc) => (
+							<div className="max-w-sm">
+								<img
+									src={imageSrc}
+									alt="Something went wrong with your file"
+									className="rounded-xl"
+								/>
+							</div>
+						))}
 					</div>
-				))}
-			</div>
+					<form>
+						<input
+							className="focus:shadow-outline  w-full appearance-none rounded bg-neutral py-3 px-3 text-sm font-extralight leading-tight text-gray-500 placeholder-neutralDark outline-none focus:outline-none"
+							type="text"
+							placeholder="add a description"
+						/>
+						<PrimaryButton>Add post</PrimaryButton>
+					</form>
+				</section>
+			)}
 
 			<PreviousStepButton onClick={() => previousStep()} />
-			<NextStepButton onClick={() => nextStep()} />
 		</ModalContainer>
 	);
 };
