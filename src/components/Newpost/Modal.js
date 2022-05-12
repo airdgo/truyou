@@ -2,7 +2,7 @@ import { Backdrop } from "./Backdrop";
 import { Step1 } from "./Step1";
 import { createPortal } from "react-dom";
 import { Step2 } from "./Step2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useContext, createContext } from "react";
 
 const ModalContext = createContext();
@@ -11,6 +11,9 @@ export const useModal = () => useContext(ModalContext);
 
 export const Modal = ({ handleClose, modalOpen }) => {
 	const [step, setStep] = useState(0);
+	const [currentMood, setCurrentMood] = useState([]);
+	const [images, setImages] = useState([]);
+	const [imagesURLs, setImagesURLs] = useState([]);
 
 	const currentStep =
 		step === 0 ? (
@@ -55,8 +58,6 @@ export const Modal = ({ handleClose, modalOpen }) => {
 		},
 	]);
 
-	const [currentMood, setCurrentMood] = useState([]);
-
 	const handleSelectedMood = (id) => {
 		const newMoods = moods.map((mood) => {
 			return mood.id === id
@@ -72,6 +73,19 @@ export const Modal = ({ handleClose, modalOpen }) => {
 		setMoods(newMoods);
 	};
 
+	useEffect(() => {
+		if (images.length < 1) return;
+		const newImagesURLs = [];
+		images.forEach((image) => newImagesURLs.push(URL.createObjectURL(image)));
+		setImagesURLs(newImagesURLs);
+		console.log(newImagesURLs);
+	}, [images]);
+
+	const onImageChange = (e) => {
+		setImages([...e.target.files]);
+		console.log(images);
+	};
+
 	const value = {
 		step,
 		nextStep,
@@ -79,6 +93,8 @@ export const Modal = ({ handleClose, modalOpen }) => {
 		handleSelectedMood,
 		moods,
 		currentMood,
+		onImageChange,
+		imagesURLs,
 	};
 
 	return createPortal(

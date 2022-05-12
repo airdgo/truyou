@@ -10,7 +10,8 @@ import { useModal } from "./Modal";
 export const Step2 = ({ handleClose }) => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { nextStep, previousStep, currentMood } = useModal();
+	const { nextStep, previousStep, currentMood, imagesURLs, onImageChange } =
+		useModal();
 
 	return (
 		<ModalContainer padding="pl-28 pr-12">
@@ -29,11 +30,25 @@ export const Step2 = ({ handleClose }) => {
 			<button className="absolute right-16 top-10" onClick={handleClose}>
 				Close
 			</button>
+
 			<div className="flex gap-4">
-				<InsertImageButton />
+				<InsertImageButton onImageChange={onImageChange} />
 				<InsertTextButton />
 				<InsertVideoButton />
 			</div>
+
+			<div className="mt-6 grid">
+				{imagesURLs.map((imageSrc) => (
+					<div className="max-w-sm">
+						<img
+							src={imageSrc}
+							alt="Something went wrong with your file"
+							className="rounded-xl"
+						/>
+					</div>
+				))}
+			</div>
+
 			<PreviousStepButton onClick={() => previousStep()} />
 			<NextStepButton onClick={() => nextStep()} />
 		</ModalContainer>
