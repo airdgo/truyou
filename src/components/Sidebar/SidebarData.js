@@ -13,8 +13,9 @@ import { FriendsSettingsIcon } from "../../icons/SidebarIcons/FriendsSettingsIco
 import { PostSettingsIcon } from "../../icons/SidebarIcons/PostSettingsIcon";
 import { AlbumsIcon } from "../../icons/SidebarIcons/AlbumsIcon";
 import { CloseSidebarIcon } from "../../icons/SidebarIcons/CloseSidebarIcon";
-import { useSidebar } from "../Dashboard/Dashboard";
 import { useAuth } from "../authentication/AuthProvider";
+import { useSidebar } from "../Dashboard/Dashboard";
+import { useSelector } from "react-redux";
 
 export const SidebarData = [
 	{
@@ -74,9 +75,10 @@ export const SidebarData = [
 ];
 
 export const LogoIcon = () => {
-	const { sidebarExtended } = useSidebar();
+	const sidebarExtended = useSelector((state) => state.sidebar.sidebarExtended);
+
 	return sidebarExtended ? (
-		<li className="text-2xl flex justify-between items-center w-full">
+		<li className="flex w-full items-center justify-between text-2xl">
 			<FaCircle className="cursor-pointer" />
 			<CloseSidebarIcon />
 		</li>
@@ -89,7 +91,7 @@ export const LogoIcon = () => {
 
 export const ProfileIconCompressed = () => {
 	return (
-		<li className="text-2xl cursor-pointer">
+		<li className="cursor-pointer text-2xl">
 			<FaCircle />
 		</li>
 	);
@@ -98,7 +100,7 @@ export const ProfileIconCompressed = () => {
 export const ProfileIconExtended = () => {
 	const { currentUser } = useAuth();
 	return (
-		<li className="text-2xl flex items-center gap-2">
+		<li className="flex items-center gap-2 text-2xl">
 			<FaCircle className="cursor-pointer" />
 			<div>
 				<p className="text-base">{currentUser.attributes.given_name}</p>
@@ -111,7 +113,7 @@ export const ProfileIconExtended = () => {
 export const SidebarLogout = () => {
 	const { handleLogout } = useSidebar();
 	return (
-		<li className="text-xl cursor-pointer" onClick={handleLogout}>
+		<li className="cursor-pointer text-xl" onClick={handleLogout}>
 			<LogoutIcon />
 		</li>
 	);

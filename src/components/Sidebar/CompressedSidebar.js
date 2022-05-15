@@ -4,15 +4,16 @@ import {
 	SidebarData,
 	LogoIcon,
 } from "./SidebarData";
-import { useSidebar } from "../Dashboard/Dashboard";
+import { toggleSidebar } from "./sidebarSlice";
+import { useDispatch } from "react-redux";
 
 export const CompresssedSidebar = () => {
-	const { toggleSidebar } = useSidebar();
+	const dispatch = useDispatch();
 
 	return (
 		<nav
-			onClick={toggleSidebar}
-			className="bg-white flex flex-col items-center min-h-screen justify-between py-6 top-0 left-0 fixed w-[4rem]"
+			onClick={() => dispatch(toggleSidebar())}
+			className="fixed top-0 left-0 flex min-h-screen w-[4rem] flex-col items-center justify-between bg-white py-6"
 		>
 			<ul className="flex flex-col items-center gap-6">
 				<LogoIcon />
@@ -23,7 +24,7 @@ export const CompresssedSidebar = () => {
 							className={
 								data.className
 									? data.className
-									: "text-primary text-xl cursor-pointer"
+									: "cursor-pointer text-xl text-primary"
 							}
 						>
 							<span>{data.icon}</span>

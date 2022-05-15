@@ -1,9 +1,9 @@
 import { CompresssedSidebar } from "./CompressedSidebar";
 import { ExtendedSidebar } from "./ExtendedSidebar";
-import { useSidebar } from "../Dashboard/Dashboard";
+import { useSelector } from "react-redux";
 
 export const SideBar = () => {
-	const { sidebarExtended } = useSidebar();
+	const sidebarExtended = useSelector((state) => state.sidebar.extended);
 
 	return sidebarExtended ? <ExtendedSidebar /> : <CompresssedSidebar />;
 };

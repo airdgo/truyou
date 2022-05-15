@@ -14,13 +14,8 @@ export function useSidebar() {
 }
 
 export const Dashboard = () => {
-	const [sidebarExtended, setSidebarExtended] = useState(false);
 	const { logout } = useAuth();
 	const navigate = useNavigate();
-
-	function toggleSidebar() {
-		setSidebarExtended((prevState) => !prevState);
-	}
 
 	async function handleLogout() {
 		try {
@@ -31,8 +26,6 @@ export const Dashboard = () => {
 		}
 	}
 	const value = {
-		sidebarExtended,
-		toggleSidebar,
 		handleLogout,
 	};
 
