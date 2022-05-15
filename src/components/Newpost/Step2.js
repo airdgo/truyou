@@ -1,5 +1,4 @@
 import { ModalContainer } from "./ModalContainer";
-import { NextStepButton } from "./Buttons/NextStepButton";
 import { InsertImageButton } from "./Buttons/InsertImageButton";
 import { InsertTextButton } from "./Buttons/InsertTextButton";
 import { InsertVideoButton } from "./Buttons/InsertVideoButton";
@@ -38,8 +37,8 @@ export const Step2 = ({ handleClose }) => {
 			</div>
 
 			{imagesURLs[0] && (
-				<section className="flex">
-					<div className="mt-6 grid">
+				<section className="mt-6 flex items-start gap-4">
+					<div className="grid">
 						{imagesURLs.map((imageSrc) => (
 							<div className="max-w-sm">
 								<img
@@ -50,12 +49,11 @@ export const Step2 = ({ handleClose }) => {
 							</div>
 						))}
 					</div>
-					<form>
-						<input
-							className="focus:shadow-outline  w-full appearance-none rounded bg-neutral py-3 px-3 text-sm font-extralight leading-tight text-gray-500 placeholder-neutralDark outline-none focus:outline-none"
-							type="text"
+					<form className="flex flex-col items-start gap-4">
+						<textarea
+							className="focus:shadow-outline w-full resize-y appearance-none rounded-md bg-neutral py-3 px-3 text-sm font-extralight leading-tight text-gray-500 placeholder-neutralDark outline-none focus:outline-none"
 							placeholder="add a description"
-						/>
+						></textarea>
 						<PrimaryButton>Add post</PrimaryButton>
 					</form>
 				</section>
