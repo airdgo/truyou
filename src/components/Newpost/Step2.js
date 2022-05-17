@@ -7,12 +7,12 @@ import { PreviousStepButton } from "./Buttons/PreviousStepButton";
 import { useModal } from "./Modal";
 import { PrimaryButton } from "../PrimaryButton";
 import { useDispatch } from "react-redux";
-import { toggleModal } from "./postsSlice";
+import { toggleModal, prevStep } from "./postsSlice";
 
 export const Step2 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { previousStep, currentMood, imagesURLs, onImageChange } = useModal();
+	const { currentMood, imagesURLs, onImageChange } = useModal();
 	const dispatch = useDispatch();
 
 	return (
@@ -65,7 +65,7 @@ export const Step2 = () => {
 				</section>
 			)}
 
-			<PreviousStepButton onClick={() => previousStep()} />
+			<PreviousStepButton onClick={() => dispatch(prevStep())} />
 		</ModalContainer>
 	);
 };

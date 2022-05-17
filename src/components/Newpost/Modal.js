@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { Step2 } from "./Step2";
 import { useState, useEffect } from "react";
 import { useContext, createContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleModal } from "./postsSlice";
 
 const ModalContext = createContext();
@@ -12,16 +12,13 @@ const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
 export const Modal = () => {
-	const [step, setStep] = useState(0);
 	const [currentMood, setCurrentMood] = useState([]);
 	const [images, setImages] = useState([]);
 	const [imagesURLs, setImagesURLs] = useState([]);
 	const dispatch = useDispatch();
+	const step = useSelector((state) => state.posts.modalStep);
 
 	const currentStep = step === 0 ? <Step1 /> : <Step2 />;
-
-	const nextStep = () => setStep((currStep) => currStep + 1);
-	const previousStep = () => setStep((currStep) => currStep - 1);
 
 	const [moods, setMoods] = useState([
 		{
@@ -86,8 +83,6 @@ export const Modal = () => {
 
 	const value = {
 		step,
-		nextStep,
-		previousStep,
 		handleSelectedMood,
 		moods,
 		currentMood,

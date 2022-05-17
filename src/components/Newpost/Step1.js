@@ -4,12 +4,12 @@ import { NextStepButton } from "./Buttons/NextStepButton";
 import { useAuth } from "../authentication/AuthProvider";
 import { useModal } from "./Modal";
 import { useDispatch } from "react-redux";
-import { toggleModal } from "./postsSlice";
+import { toggleModal, nextStep } from "./postsSlice";
 
 export const Step1 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { nextStep, currentMood } = useModal();
+	const { currentMood } = useModal();
 	const isDisabled = currentMood.length === 0 ? true : false;
 	const dispatch = useDispatch();
 
@@ -30,7 +30,10 @@ export const Step1 = () => {
 			>
 				Close
 			</button>
-			<NextStepButton disabled={isDisabled} onClick={() => nextStep()} />
+			<NextStepButton
+				disabled={isDisabled}
+				onClick={() => dispatch(nextStep())}
+			/>
 		</ModalContainer>
 	);
 };
