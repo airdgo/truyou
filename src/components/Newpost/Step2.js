@@ -6,11 +6,14 @@ import { useAuth } from "../authentication/AuthProvider";
 import { PreviousStepButton } from "./Buttons/PreviousStepButton";
 import { useModal } from "./Modal";
 import { PrimaryButton } from "../PrimaryButton";
+import { useDispatch } from "react-redux";
+import { toggleModal } from "./postsSlice";
 
-export const Step2 = ({ handleClose }) => {
+export const Step2 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
 	const { previousStep, currentMood, imagesURLs, onImageChange } = useModal();
+	const dispatch = useDispatch();
 
 	return (
 		<ModalContainer padding="pl-28 pr-12">
@@ -26,7 +29,10 @@ export const Step2 = ({ handleClose }) => {
 
 			<p className="my-8">2. Insert your post</p>
 
-			<button className="absolute right-16 top-10" onClick={handleClose}>
+			<button
+				className="absolute right-16 top-10"
+				onClick={() => dispatch(toggleModal())}
+			>
 				Close
 			</button>
 

@@ -6,25 +6,27 @@ import { useAuth } from "../authentication/AuthProvider";
 import { ImageIcon } from "../../icons/MoodsAndPostsIcons/ImageIcon";
 import { Section } from "../Section";
 import { Modal } from "../Newpost/Modal";
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleModal } from "../Newpost/postsSlice";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
-	const [modalOpen, setModalOpen] = useState(false);
-
-	const closeModal = () => setModalOpen(false);
-	const openModal = () => setModalOpen(true);
+	const modalOpen = useSelector((state) => state.posts.modalOpen);
+	const dispatch = useDispatch();
 
 	return (
 		<Section>
 			<header className="flex flex-col gap-8">
-				<div className="text-neutralDark flex justify-between items-center">
+				<div className="flex items-center justify-between text-neutralDark">
 					<div className="text-xs">Posts</div>
 					<ThreeDotsIcon />
 				</div>
 				<div className="flex items-center justify-between">
 					<div className="flex gap-4">
-						<PrimaryButton bgColor="bg-accent" onClick={() => openModal()}>
+						<PrimaryButton
+							bgColor="bg-accent"
+							onClick={() => dispatch(toggleModal())}
+						>
 							Add new post
 						</PrimaryButton>
 						<PrimaryButton bgColor="bg-accent">Add new friend</PrimaryButton>
@@ -36,14 +38,14 @@ export const Posts = () => {
 				</div>
 			</header>
 
-			{modalOpen && <Modal modalOpen={modalOpen} handleClose={closeModal} />}
+			{modalOpen && <Modal modalOpen={modalOpen} />}
 
-			<div className="flex items-center justify-center min-h-[80%] text-center text-neutralDarker flex-col  gap-6">
+			<div className="flex min-h-[80%] flex-col items-center justify-center gap-6 text-center  text-neutralDarker">
 				<ImageIcon />
-				<span className="font-bold text-xl">
+				<span className="text-xl font-bold">
 					Hello, {currentUser.attributes.given_name}!
 				</span>
-				<p className="font-normal text-sm max-w-xs">
+				<p className="max-w-xs text-sm font-normal">
 					There's no posts here yet. Start posting so you can keep your
 					memories.
 				</p>

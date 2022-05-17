@@ -4,23 +4,21 @@ import { createPortal } from "react-dom";
 import { Step2 } from "./Step2";
 import { useState, useEffect } from "react";
 import { useContext, createContext } from "react";
+import { useDispatch } from "react-redux";
+import { toggleModal } from "./postsSlice";
 
 const ModalContext = createContext();
 
 export const useModal = () => useContext(ModalContext);
 
-export const Modal = ({ handleClose, modalOpen }) => {
+export const Modal = () => {
 	const [step, setStep] = useState(0);
 	const [currentMood, setCurrentMood] = useState([]);
 	const [images, setImages] = useState([]);
 	const [imagesURLs, setImagesURLs] = useState([]);
+	const dispatch = useDispatch();
 
-	const currentStep =
-		step === 0 ? (
-			<Step1 handleClose={handleClose} />
-		) : (
-			<Step2 handleClose={handleClose} />
-		);
+	const currentStep = step === 0 ? <Step1 /> : <Step2 />;
 
 	const nextStep = () => setStep((currStep) => currStep + 1);
 	const previousStep = () => setStep((currStep) => currStep - 1);
@@ -99,7 +97,7 @@ export const Modal = ({ handleClose, modalOpen }) => {
 
 	return createPortal(
 		<ModalContext.Provider value={value}>
-			<Backdrop onClick={handleClose}>{currentStep}</Backdrop>
+			<Backdrop onClick={() => dispatch(toggleModal())}>{currentStep}</Backdrop>
 		</ModalContext.Provider>,
 		document.getElementById("portal")
 	);
