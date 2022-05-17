@@ -13,8 +13,7 @@ import { FriendsSettingsIcon } from "../../icons/SidebarIcons/FriendsSettingsIco
 import { PostSettingsIcon } from "../../icons/SidebarIcons/PostSettingsIcon";
 import { AlbumsIcon } from "../../icons/SidebarIcons/AlbumsIcon";
 import { CloseSidebarIcon } from "../../icons/SidebarIcons/CloseSidebarIcon";
-import { useAuth } from "../authentication/AuthProvider";
-import { useSidebar } from "../Dashboard/Dashboard";
+import { useAuth } from "../../components/authentication/AuthProvider";
 import { useSelector } from "react-redux";
 
 export const SidebarData = [
@@ -110,8 +109,7 @@ export const ProfileIconExtended = () => {
 	);
 };
 
-export const SidebarLogout = () => {
-	const { handleLogout } = useSidebar();
+export const SidebarLogout = ({ handleLogout }) => {
 	return (
 		<li className="cursor-pointer text-xl" onClick={handleLogout}>
 			<LogoutIcon />
