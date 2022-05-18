@@ -1,22 +1,22 @@
-import { useModal } from "./Modal";
+import { selectMood } from "./postsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const ChooseMood = () => {
-	const { moods, handleSelectedMood } = useModal();
+	const moods = useSelector((state) => state.posts.moods);
+	const dispatch = useDispatch();
 
-	return (
-		<ul className="flex gap-8">
-			{moods.map((mood) => {
-				const selectedStyle = mood.isSelected
-					? "bg-accent text-white"
-					: "bg-background";
-				const className = "cursor-pointer rounded px-4 py-2 " + selectedStyle;
+	const Moods = moods.map((mood) => {
+		const selectedStyle = mood.isSelected
+			? "bg-accent text-white"
+			: "bg-background";
+		const className = "cursor-pointer rounded px-4 py-2 " + selectedStyle;
 
-				return (
-					<li key={mood.id} onClick={() => handleSelectedMood(mood.id)}>
-						<button className={className}>{mood.mood}</button>
-					</li>
-				);
-			})}
-		</ul>
-	);
+		return (
+			<li key={mood.id} onClick={() => dispatch(selectMood(mood.id))}>
+				<button className={className}>{mood.mood}</button>
+			</li>
+		);
+	});
+
+	return <ul className="flex gap-8">{Moods}</ul>;
 };

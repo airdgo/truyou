@@ -3,7 +3,7 @@ import { InsertImageIcon } from "../../../icons/MoodsAndPostsIcons/InsertImageIc
 export const InsertImageButton = ({ onImageChange, ...props }) => {
 	return (
 		<button {...props}>
-			<label for="inputTag">
+			<label htmlFor="inputTag">
 				<InsertImageIcon className="cursor-pointer fill-background stroke-primary hover:fill-accent hover:stroke-white" />
 				<input
 					id="inputTag"

@@ -6,13 +6,14 @@ import { useAuth } from "../authentication/AuthProvider";
 import { PreviousStepButton } from "./Buttons/PreviousStepButton";
 import { useModal } from "./Modal";
 import { PrimaryButton } from "../PrimaryButton";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleModal, prevStep } from "./postsSlice";
 
 export const Step2 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const { currentMood, imagesURLs, onImageChange } = useModal();
+	const { imagesURLs, onImageChange } = useModal();
+	const currentMood = useSelector((state) => state.posts.currentMood);
 	const dispatch = useDispatch();
 
 	return (
@@ -22,7 +23,7 @@ export const Step2 = () => {
 					{userName},
 					<span className=" text-base font-normal">
 						{" "}
-						is feeling {currentMood}
+						is feeling {currentMood.mood}
 					</span>
 				</h1>
 			</div>
