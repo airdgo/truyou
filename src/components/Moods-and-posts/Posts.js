@@ -38,7 +38,7 @@ export const Posts = () => {
 				</div>
 			</header>
 
-			{modalOpen && <Modal modalOpen={modalOpen} />}
+			{modalOpen && <Modal />}
 
 			<div className="flex min-h-[80%] flex-col items-center justify-center gap-6 text-center  text-neutralDarker">
 				<ImageIcon />

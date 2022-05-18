@@ -92,7 +92,7 @@ export const Modal = () => {
 
 	return createPortal(
 		<ModalContext.Provider value={value}>
-			<Backdrop onClick={() => dispatch(toggleModal())}>{currentStep}</Backdrop>
+			<Backdrop>{currentStep}</Backdrop>
 		</ModalContext.Provider>,
 		document.getElementById("portal")
 	);
