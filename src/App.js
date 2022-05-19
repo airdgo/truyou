@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "./components/dashboard/Dashboard";
+import { Dashboard } from "./components/Dashboard/Dashboard";
 import { Signup } from "./components/authentication/Signup";
 import { ConfirmSignup } from "./components/authentication/ConfirmSignup";
 import { Login } from "./components/authentication/Login";

@@ -3,11 +3,11 @@ import { useAuth } from "../authentication/AuthProvider";
 import { CryptoIcon } from "../../icons/SidebarIcons/CryptoIcon";
 import { BellIcon } from "../../icons/NavbarIcons/BellIcon";
 import { MessageIcon } from "../../icons/NavbarIcons/MessageIcon";
-import { useSidebar } from "../dashboard/Dashboard";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
 	const { currentUser } = useAuth();
-	const { sidebarExtended } = useSidebar();
+	const sidebarExtended = useSelector((state) => state.sidebar.extended);
 
 	const padding = sidebarExtended ? "pl-60" : "pl-20";
 	const className =
@@ -22,7 +22,7 @@ export const Navbar = () => {
 					<span className="font-bold">Hello, </span>
 					{currentUser.attributes.given_name}
 				</div>
-				<ul className="text-white flex text-xl gap-4 mx-20">
+				<ul className="mx-20 flex gap-4 text-xl text-white">
 					<li className="cursor-pointer">
 						<CryptoIcon stroke={"#FFFF"} />
 					</li>

@@ -4,21 +4,23 @@ import {
 	SidebarData,
 	LogoIcon,
 } from "./SidebarData";
-import { useSidebar } from "../dashboard/Dashboard";
+import { toggleSidebar } from "./sidebarSlice";
+import { useDispatch } from "react-redux";
 
 export const ExtendedSidebar = () => {
-	const { toggleSidebar } = useSidebar();
+	const dispatch = useDispatch();
+
 	return (
 		<nav
-			onClick={toggleSidebar}
-			className="bg-white flex flex-col items-start min-h-screen justify-between py-6 top-0 left-0 fixed w-[14rem] pl-[1.33rem] pr-2"
+			onClick={() => dispatch(toggleSidebar())}
+			className="fixed top-0 left-0 flex min-h-screen w-[14rem] flex-col items-start justify-between bg-white py-6 pl-[1.33rem] pr-2"
 		>
-			<ul className="flex flex-col items-start gap-6 font-card text-primary text-xl w-full">
+			<ul className="flex w-full flex-col items-start gap-6 font-card text-xl text-primary">
 				<LogoIcon />
 				{SidebarData.map((data, index) => {
 					return (
 						<li key={index}>
-							<div className="flex items-center gap-2 cursor-pointer max-w-max">
+							<div className="flex max-w-max cursor-pointer items-center gap-2">
 								<span>{data.icon}</span>
 								<p className="text-xs">{data.name}</p>
 							</div>
@@ -28,7 +30,7 @@ export const ExtendedSidebar = () => {
 									return (
 										<div
 											key={index}
-											className="flex items-center gap-2 ml-4 my-2 cursor-pointer"
+											className="my-2 ml-4 flex cursor-pointer items-center gap-2"
 										>
 											<span>{secondLevelData.icon}</span>
 											<p className="text-xs">{secondLevelData.name}</p>
