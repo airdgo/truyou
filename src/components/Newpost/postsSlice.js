@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const moods = [
 	{
@@ -38,6 +38,7 @@ const initialState = {
 	modalStep: 0,
 	moods,
 	currentMood: {},
+	images: [],
 };
 
 export const postsSlice = createSlice({
@@ -59,10 +60,23 @@ export const postsSlice = createSlice({
 				!state.moods[action.payload].isSelected;
 			state.currentMood = state.moods.filter((mood) => mood.isSelected)[0];
 		},
+		addImage: {
+			reducer: (state, action) => {
+				state.images.push(action.payload);
+			},
+			prepare: (URL) => {
+				return {
+					payload: {
+						id: nanoid(),
+						URL,
+					},
+				};
+			},
+		},
 	},
 });
 
-export const { toggleModal, nextStep, prevStep, selectMood } =
+export const { toggleModal, nextStep, prevStep, selectMood, addImage } =
 	postsSlice.actions;
 
 export default postsSlice.reducer;
