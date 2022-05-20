@@ -107,6 +107,20 @@ export const ForgotPasswordStep2 = () => {
 		setLoading(false);
 	}
 
+	const renderedInputs = formInputs.map((input, index) => {
+		return (
+			<FormInput
+				key={index}
+				register={register}
+				{...input}
+				error={!!errors[input.name]}
+				helperText={errors[input.name]?.message}
+				showPassword={input.passwordButton}
+				togglePassword={() => togglePassword(index - 1)}
+			/>
+		);
+	});
+
 	return (
 		<div className="min-h-screen bg-background font-card">
 			<FormContainer>
@@ -114,19 +128,7 @@ export const ForgotPasswordStep2 = () => {
 					<FormHeader>Create new password</FormHeader>
 
 					<div className="grid w-full grid-cols-2 gap-3 pb-32">
-						{formInputs.map((input, index) => {
-							return (
-								<FormInput
-									key={index}
-									register={register}
-									{...input}
-									error={!!errors[input.name]}
-									helperText={errors[input.name]?.message}
-									showPassword={input.passwordButton}
-									togglePassword={() => togglePassword(index - 1)}
-								/>
-							);
-						})}
+						{renderedInputs}
 						<AuthError message={errorMessage} />
 						<FormButton disabled={loading}>Create</FormButton>
 					</div>

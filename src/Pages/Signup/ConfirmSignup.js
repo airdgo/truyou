@@ -88,6 +88,18 @@ export const ConfirmSignup = () => {
 		setLoading(false);
 	}
 
+	const renderedInputs = formInputs.map((input) => {
+		return (
+			<FormInput
+				key={input.name}
+				register={register}
+				{...input}
+				error={!!errors[input.name]}
+				helperText={errors[input.name]?.message}
+			/>
+		);
+	});
+
 	return (
 		<div className="min-h-screen bg-background font-card">
 			<FormContainer>
@@ -95,17 +107,7 @@ export const ConfirmSignup = () => {
 					<FormHeader>Check your email for the confirmation code</FormHeader>
 
 					<div className="grid w-full grid-cols-2 gap-3">
-						{formInputs.map((input, index) => {
-							return (
-								<FormInput
-									key={index}
-									register={register}
-									{...input}
-									error={!!errors[input.name]}
-									helperText={errors[input.name]?.message}
-								/>
-							);
-						})}
+						{renderedInputs}
 
 						<FormButton disabled={loading}>Register</FormButton>
 					</div>

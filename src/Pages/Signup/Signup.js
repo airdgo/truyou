@@ -94,6 +94,18 @@ export const Signup = () => {
 		setLoading(false);
 	}
 
+	const renderedInputs = formInputs.map((input) => {
+		return (
+			<FormInput
+				key={input.name}
+				register={register}
+				{...input}
+				error={!!errors[input.name]}
+				helperText={errors[input.name]?.message}
+			/>
+		);
+	});
+
 	return (
 		<div className="min-h-screen bg-background font-card">
 			<FormContainer>
@@ -101,17 +113,7 @@ export const Signup = () => {
 					<FormHeader>Sign up for a free account</FormHeader>
 
 					<div className="grid w-full grid-cols-2 gap-3">
-						{formInputs.map((input, index) => {
-							return (
-								<FormInput
-									key={index}
-									register={register}
-									{...input}
-									error={!!errors[input.name]}
-									helperText={errors[input.name]?.message}
-								/>
-							);
-						})}
+						{renderedInputs}
 						<AuthError message={errorMessage} />
 						<FormButton disabled={loading}>Register</FormButton>
 					</div>

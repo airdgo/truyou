@@ -76,6 +76,20 @@ export const Login = () => {
 		setLoading(false);
 	}
 
+	const renderedInputs = formInputs.map((input) => {
+		return (
+			<FormInput
+				key={input.name}
+				register={register}
+				{...input}
+				error={!!errors[input.name]}
+				helperText={errors[input.name]?.message}
+				showPassword={input.passwordButton}
+				togglePassword={togglePassword}
+			/>
+		);
+	});
+
 	return (
 		<div className="min-h-screen bg-background font-card">
 			<FormContainer>
@@ -83,19 +97,7 @@ export const Login = () => {
 					<FormHeader>Autentification</FormHeader>
 
 					<div className="relative grid w-full grid-cols-2 gap-3">
-						{formInputs.map((input, index) => {
-							return (
-								<FormInput
-									key={index}
-									register={register}
-									{...input}
-									error={!!errors[input.name]}
-									helperText={errors[input.name]?.message}
-									showPassword={input.passwordButton}
-									togglePassword={togglePassword}
-								/>
-							);
-						})}
+						{renderedInputs}
 						<AuthError message={errorMessage} />
 						<FormButton disabled={loading}>Login</FormButton>
 					</div>

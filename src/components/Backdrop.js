@@ -1,12 +1,7 @@
-import { useDispatch } from "react-redux";
-import { toggleModal } from "../Features/Posts/postsSlice";
-
-export const Backdrop = ({ children }) => {
-	const dispatch = useDispatch();
-
+export const Backdrop = ({ children, ...props }) => {
 	return (
 		<div
-			onClick={() => dispatch(toggleModal())}
+			{...props}
 			className="fixed top-0 left-0 grid h-screen w-full place-items-center overflow-auto bg-[#000000e1] p-8"
 		>
 			{children}
