@@ -11,7 +11,7 @@ export const Navbar = () => {
 
 	const padding = sidebarExtended ? "pl-60" : "pl-20";
 	const className =
-		"w-full bg-primary flex justify-between items-center fixed min-h-[4rem] top-0 left-0 " +
+		"w-full bg-primary flex justify-between items-center fixed min-h-[4rem] top-0 left-0 z-10 " +
 		padding;
 
 	return (
