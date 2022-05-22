@@ -35,8 +35,8 @@ export const Step2 = () => {
 		});
 	}, [imageFiles]);
 
-	const renderedImages = images.map((imageSrc, index) => (
-		<div key={index} className="max-w-sm">
+	const renderedImages = images.map((imageSrc) => (
+		<div key={imageSrc.URL} className="max-w-sm">
 			<img
 				src={imageSrc.URL}
 				alt="Something went wrong with your file"

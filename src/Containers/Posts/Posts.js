@@ -14,10 +14,10 @@ export const Posts = () => {
 	const { currentUser } = useAuth();
 	const modalOpen = useSelector((state) => state.posts.modalOpen);
 	const dispatch = useDispatch();
-	const postsAdded = true;
+	const postsAdded = false;
 
 	return (
-		<Section>
+		<Section className="min-h-screen">
 			<header className="flex flex-col gap-8">
 				<div className="flex items-center justify-between text-neutralDark">
 					<div className="text-xs">Posts</div>
