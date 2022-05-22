@@ -3,12 +3,15 @@ import { ChooseMood } from "./ChooseMood";
 import { NextStepButton } from "../../Components/NextStepButton";
 import { useAuth } from "../../Authentication/AuthProvider";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleModal, nextStep } from "../../Features/Posts/postsSlice";
+import {
+	toggleModal,
+	nextStep,
+} from "../../Features/PostsModal/postsModalSlice";
 
 export const Step1 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const currentMood = useSelector((state) => state.posts.currentMood);
+	const currentMood = useSelector((state) => state.postsModal.currentMood);
 	const dispatch = useDispatch();
 	const isDisabled = currentMood.isSelected ? false : true;
 

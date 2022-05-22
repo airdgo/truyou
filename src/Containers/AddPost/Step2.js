@@ -10,7 +10,7 @@ import {
 	toggleModal,
 	prevStep,
 	addImage,
-} from "../../Features/Posts/postsSlice";
+} from "../../Features/PostsModal/postsModalSlice";
 import { useEffect, useState } from "react";
 
 export const Step2 = () => {
@@ -19,8 +19,8 @@ export const Step2 = () => {
 
 	const [imageFiles, setImageFiles] = useState([]);
 
-	const images = useSelector((state) => state.posts.images);
-	const currentMood = useSelector((state) => state.posts.currentMood);
+	const images = useSelector((state) => state.postsModal.images);
+	const currentMood = useSelector((state) => state.postsModal.currentMood);
 
 	const dispatch = useDispatch();
 

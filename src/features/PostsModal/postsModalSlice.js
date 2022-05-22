@@ -41,8 +41,8 @@ const initialState = {
 	images: [],
 };
 
-export const postsSlice = createSlice({
-	name: "posts",
+export const postsModalSlice = createSlice({
+	name: "postsModal",
 	initialState,
 	reducers: {
 		toggleModal: (state) => {
@@ -77,6 +77,6 @@ export const postsSlice = createSlice({
 });
 
 export const { toggleModal, nextStep, prevStep, selectMood, addImage } =
-	postsSlice.actions;
+	postsModalSlice.actions;
 
-export default postsSlice.reducer;
+export default postsModalSlice.reducer;

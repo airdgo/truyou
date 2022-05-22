@@ -1,8 +1,8 @@
-import { selectMood } from "../../Features/Posts/postsSlice";
+import { selectMood } from "../../Features/PostsModal/postsModalSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export const ChooseMood = () => {
-	const moods = useSelector((state) => state.posts.moods);
+	const moods = useSelector((state) => state.postsModal.moods);
 	const dispatch = useDispatch();
 
 	const Moods = moods.map((mood) => {

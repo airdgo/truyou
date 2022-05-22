@@ -6,15 +6,15 @@ import { useAuth } from "../../Authentication/AuthProvider";
 import { Section } from "../../Components/Section";
 import { Modal } from "../../Containers/AddPost/Modal";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleModal } from "../../Features/Posts/postsSlice";
+import { toggleModal } from "../../Features/PostsModal/postsModalSlice";
 import { NoPostsAdded } from "./NoPostsAdded";
 import { PostsAdded } from "./PostsAdded";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
-	const modalOpen = useSelector((state) => state.posts.modalOpen);
+	const modalOpen = useSelector((state) => state.postsModal.modalOpen);
 	const dispatch = useDispatch();
-	const postsAdded = false;
+	const postsAdded = true;
 
 	return (
 		<Section className="min-h-screen">

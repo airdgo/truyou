@@ -1,5 +1,7 @@
+import { FaCircle } from "react-icons/fa";
+import { LoveIcon } from "../../Icons/MoodsAndPostsIcons/LoveIcon";
 export const NewPost = (props) => {
-	const { mood, date, loves, icon, message, imagePath } = props;
+	const { mood, date, loves, message, imagePath } = props;
 
 	return (
 		<div className="relative rounded bg-background p-8 text-primary">
@@ -14,11 +16,11 @@ export const NewPost = (props) => {
 			</p>
 			<div className="absolute right-0 mr-8 flex items-center gap-4 text-xs font-light text-neutralDarker">
 				<p>{loves}</p>
-				{icon}
+				<LoveIcon />
 			</div>
 			<p className="mt-8">{message}</p>
 			<img
-				src={require(imagePath)}
+				src={imagePath}
 				alt="there seems to be a proablem loading your file"
 				className="mt-4 rounded-xl"
 			/>
@@ -30,7 +32,6 @@ NewPost.defaultProps = {
 	mood: "mood not selected",
 	date: "date not specified",
 	loves: "people thate love the post",
-	icon: "user icon",
 	message: "user message",
 	imagePath: "image path",
 };

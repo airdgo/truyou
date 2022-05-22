@@ -1,12 +1,12 @@
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import sidebarReducer from "../Features/Sidebar/sidebarSlice";
-import postsReducer from "../Features/Posts/postsSlice";
+import postsModalReducer from "../Features/PostsModal/postsModalSlice";
 
 export const store = configureStore({
 	reducer: {
 		sidebar: sidebarReducer,
-		posts: postsReducer,
+		postsModal: postsModalReducer,
 	},
 });
 
