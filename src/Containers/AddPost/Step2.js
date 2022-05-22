@@ -12,6 +12,7 @@ import {
 	addImage,
 } from "../../Features/PostsModal/postsModalSlice";
 import { useEffect, useState } from "react";
+import { postAdded } from "../../Features/Posts/postsSlice";
 
 export const Step2 = () => {
 	const { currentUser } = useAuth();
@@ -25,6 +26,15 @@ export const Step2 = () => {
 	const dispatch = useDispatch();
 
 	const onImageChange = (e) => setImageFiles([...e.target.files]);
+
+	const [description, setDescription] = useState("");
+
+	const onDescriptionChanged = (e) => setDescription(e.target.value);
+
+	const onAddPostClicked = () => {
+		if (!description) return;
+		dispatch(postAdded(currentMood.mood, "data", "", description, "imgpath"));
+	};
 
 	useEffect(() => {
 		if (imageFiles.length <= 0) return;
@@ -79,8 +89,10 @@ export const Step2 = () => {
 						<textarea
 							className="focus:shadow-outline w-full resize-y appearance-none rounded-md bg-neutral py-3 px-3 text-sm font-extralight leading-tight text-gray-500 placeholder-neutralDark"
 							placeholder="add a description"
+							value={description}
+							onChange={onDescriptionChanged}
 						></textarea>
-						<PrimaryButton>Add post</PrimaryButton>
+						<PrimaryButton onClick={onAddPostClicked}>Add post</PrimaryButton>
 					</form>
 				</section>
 			)}

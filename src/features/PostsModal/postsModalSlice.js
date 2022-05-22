@@ -39,6 +39,7 @@ const initialState = {
 	moods,
 	currentMood: {},
 	images: [],
+	description: "",
 };
 
 export const postsModalSlice = createSlice({
