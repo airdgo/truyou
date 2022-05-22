@@ -13,7 +13,7 @@ export const ExtendedSidebar = () => {
 	return (
 		<nav
 			onClick={() => dispatch(toggleSidebar())}
-			className="fixed top-0 left-0 flex min-h-screen w-[14rem] flex-col items-start justify-between bg-white py-6 pl-[1.33rem] pr-2"
+			className="fixed top-0 left-0 z-20 flex min-h-screen w-[14rem] flex-col items-start justify-between bg-white py-6 pl-[1.33rem] pr-2"
 		>
 			<ul className="flex w-full flex-col items-start gap-6 font-card text-xl text-primary">
 				<LogoIcon />

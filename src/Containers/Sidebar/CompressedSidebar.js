@@ -13,7 +13,7 @@ export const CompresssedSidebar = () => {
 	return (
 		<nav
 			onClick={() => dispatch(toggleSidebar())}
-			className="fixed top-0 left-0 flex min-h-screen w-[4rem] flex-col items-center justify-between bg-white py-6"
+			className="fixed top-0 left-0 z-20 flex min-h-screen w-[4rem] flex-col items-center justify-between bg-white py-6"
 		>
 			<ul className="flex flex-col items-center gap-6">
 				<LogoIcon />

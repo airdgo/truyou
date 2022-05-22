@@ -2,7 +2,7 @@ import { Moods } from "../Moods/Moods";
 import { Posts } from "../Posts/Posts";
 export const MoodAndPosts = () => {
 	return (
-		<section className="grid grid-rows-[1fr_3fr] gap-4">
+		<section className="grid h-full min-h-screen grid-rows-[1fr_3fr] gap-4">
 			<Moods />
 			<Posts />
 		</section>
