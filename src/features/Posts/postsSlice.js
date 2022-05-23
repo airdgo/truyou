@@ -4,10 +4,11 @@ const initialState = [
 	{
 		id: 0,
 		mood: "happy",
-		date: "data",
-		reactions: "",
-		message: "lasdhfjklasdhlkasjdflkj",
-		imagePath: "imgpath",
+		date: "01. 01. 2022",
+		reactions: "John, Doe, Joe and other 3",
+		message:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim",
+		images: [],
 	},
 ];
 
@@ -19,15 +20,22 @@ export const postsSlice = createSlice({
 			reducer: (state, action) => {
 				state.push(action.payload);
 			},
-			prepare: (mood, date, reactions, message, imagePath) => {
+			prepare: (mood, reactions, message, images) => {
+				const today = new Date();
+				const newdate =
+					today.getDate() +
+					". " +
+					(today.getMonth() + 1) +
+					". " +
+					today.getFullYear();
 				return {
 					payload: {
 						id: nanoid(),
 						mood,
-						date,
+						date: newdate,
 						reactions,
 						message,
-						imagePath,
+						images,
 					},
 				};
 			},

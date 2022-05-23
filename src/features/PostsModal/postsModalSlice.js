@@ -74,10 +74,19 @@ export const postsModalSlice = createSlice({
 				};
 			},
 		},
+		resetModal: () => {
+			return { ...initialState };
+		},
 	},
 });
 
-export const { toggleModal, nextStep, prevStep, selectMood, addImage } =
-	postsModalSlice.actions;
+export const {
+	toggleModal,
+	nextStep,
+	prevStep,
+	selectMood,
+	addImage,
+	resetModal,
+} = postsModalSlice.actions;
 
 export default postsModalSlice.reducer;
