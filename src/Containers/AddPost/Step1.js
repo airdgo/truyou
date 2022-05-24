@@ -11,9 +11,9 @@ import {
 export const Step1 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
-	const currentMood = useSelector((state) => state.postsModal.currentMood);
+	const postsModal = useSelector((state) => state.postsModal);
 	const dispatch = useDispatch();
-	const isDisabled = currentMood.isSelected ? false : true;
+	const isDisabled = postsModal.currentMood.isSelected ? false : true;
 
 	return (
 		<ModalContainer>

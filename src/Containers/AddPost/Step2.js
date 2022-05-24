@@ -20,9 +20,7 @@ export const Step2 = () => {
 	const userName = currentUser.attributes.given_name;
 
 	const [imageFiles, setImageFiles] = useState([]);
-
-	const images = useSelector((state) => state.postsModal.images);
-	const currentMood = useSelector((state) => state.postsModal.currentMood);
+	const postsModal = useSelector((state) => state.postsModal);
 
 	const dispatch = useDispatch();
 
@@ -33,7 +31,12 @@ export const Step2 = () => {
 	const onAddPostClicked = () => {
 		if (!descriptionRef.current.value) return;
 		dispatch(
-			postAdded(currentMood.mood, "", descriptionRef.current.value, images)
+			postAdded(
+				postsModal.currentMood.mood,
+				"",
+				descriptionRef.current.value,
+				postsModal.images
+			)
 		);
 		dispatch(resetModal());
 	};
@@ -47,7 +50,7 @@ export const Step2 = () => {
 		});
 	}, [imageFiles]);
 
-	const renderedImages = images.map((imageSrc) => (
+	const renderedImages = postsModal.images.map((imageSrc) => (
 		<div key={imageSrc.URL} className="max-w-sm">
 			<img
 				src={imageSrc.URL}
@@ -64,7 +67,7 @@ export const Step2 = () => {
 					{userName},
 					<span className=" text-base font-normal">
 						{" "}
-						is feeling {currentMood.mood}
+						is feeling {postsModal.currentMood.mood}
 					</span>
 				</h1>
 			</div>
@@ -84,7 +87,7 @@ export const Step2 = () => {
 				<InsertVideoButton />
 			</div>
 
-			{images[0] && (
+			{postsModal.images[0] && (
 				<section className="mt-6 flex items-start gap-4">
 					<div className="grid">{renderedImages}</div>
 					<form className="flex flex-col items-start gap-4">
