@@ -1,15 +1,16 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
-	// {
-	// 	id: 0,
-	// 	mood: "happy",
-	// 	date: "01. 01. 2022",
-	// 	reactions: "John, Doe, Joe and other 3",
-	// 	message:
-	// 		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim",
-	// 	images: [],
-	// },
+	{
+		id: 0,
+		mood: "happy",
+		date: "01. 01. 2022",
+		reactions: "John, Doe, Joe and other 3",
+		createdAt: Date.now(),
+		message:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim",
+		images: [],
+	},
 ];
 
 export const postsSlice = createSlice({

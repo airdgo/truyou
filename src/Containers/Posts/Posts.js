@@ -12,9 +12,9 @@ import { PostsAdded } from "./PostsAdded";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
-	const modalOpen = useSelector((state) => state.postsModal.modalOpen);
+	const postsModal = useSelector((state) => state.postsModal);
+	const posts = useSelector((state) => state.posts);
 	const dispatch = useDispatch();
-	const postsAdded = true;
 
 	return (
 		<Section className="min-h-screen">
@@ -40,9 +40,9 @@ export const Posts = () => {
 				</div>
 			</header>
 
-			{modalOpen && <Modal />}
+			{postsModal.modalOpen && <Modal />}
 
-			{postsAdded ? (
+			{posts.length ? (
 				<PostsAdded />
 			) : (
 				<NoPostsAdded currentUser={currentUser.attributes.given_name} />
