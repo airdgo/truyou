@@ -1,13 +1,11 @@
-import { FaCircle } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { LoveIcon } from "../../Icons/MoodsAndPostsIcons/LoveIcon";
 import { NewPost } from "./NewPost";
 import { selectAllPosts } from "../../Features/Posts/postsSlice";
 
 export const PostsAdded = () => {
 	const posts = useSelector(selectAllPosts);
-
-	const renderedPosts = posts.map((post) => {
+	const sortedPosts = posts.slice().sort((x, y) => y.createdAt - x.createdAt);
+	const renderedPosts = sortedPosts.map((post) => {
 		const props = {
 			key: post.id,
 			mood: post.mood,

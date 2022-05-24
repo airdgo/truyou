@@ -1,8 +1,8 @@
 import { InsertTextIcon } from "../Icons/MoodsAndPostsIcons/InsertTextIcon";
 
-export const InsertTextButton = () => {
+export const InsertTextButton = ({ ...props }) => {
 	return (
-		<button>
+		<button {...props}>
 			<InsertTextIcon />
 		</button>
 	);

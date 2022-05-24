@@ -19,14 +19,16 @@ export const Step2 = () => {
 	const { currentUser } = useAuth();
 	const userName = currentUser.attributes.given_name;
 
+	const [showTextBox, setShowTextBox] = useState(false);
 	const [imageFiles, setImageFiles] = useState([]);
-	const postsModal = useSelector((state) => state.postsModal);
+	const descriptionRef = useRef();
 
+	const postsModal = useSelector((state) => state.postsModal);
 	const dispatch = useDispatch();
 
 	const onImageChange = (e) => setImageFiles([...e.target.files]);
 
-	const descriptionRef = useRef();
+	const toggleTextBox = () => setShowTextBox((state) => !state);
 
 	const onAddPostClicked = () => {
 		if (!descriptionRef.current.value) return;
@@ -48,17 +50,22 @@ export const Step2 = () => {
 			const imageURL = URL.createObjectURL(image);
 			dispatch(addImage(imageURL));
 		});
+		setShowTextBox(true);
 	}, [imageFiles]);
 
-	const renderedImages = postsModal.images.map((imageSrc) => (
-		<div key={imageSrc.URL} className="max-w-sm">
-			<img
-				src={imageSrc.URL}
-				alt="Something went wrong with your file"
-				className="rounded-xl"
-			/>
+	const renderedImages = postsModal.images[0] && (
+		<div className="grid">
+			{postsModal.images.map((imageSrc) => (
+				<div key={imageSrc.URL} className="max-w-sm">
+					<img
+						src={imageSrc.URL}
+						alt="Something went wrong with your file"
+						className="rounded-xl"
+					/>
+				</div>
+			))}
 		</div>
-	));
+	);
 
 	return (
 		<ModalContainer padding="pl-28 pr-12">
@@ -83,23 +90,23 @@ export const Step2 = () => {
 
 			<div className="flex gap-4">
 				<InsertImageButton onImageChange={onImageChange} />
-				<InsertTextButton />
+				<InsertTextButton onClick={toggleTextBox} />
 				<InsertVideoButton />
 			</div>
 
-			{postsModal.images[0] && (
-				<section className="mt-6 flex items-start gap-4">
-					<div className="grid">{renderedImages}</div>
-					<form className="flex flex-col items-start gap-4">
+			<form className="mt-6 flex items-start gap-4">
+				{renderedImages}
+				{showTextBox && (
+					<div className="flex flex-col items-start gap-4">
 						<textarea
 							className="focus:shadow-outline w-full resize-y appearance-none rounded-md bg-neutral py-3 px-3 text-sm font-extralight leading-tight text-gray-500 placeholder-neutralDark"
 							placeholder="add a description"
 							ref={descriptionRef}
 						></textarea>
 						<PrimaryButton onClick={onAddPostClicked}>Add post</PrimaryButton>
-					</form>
-				</section>
-			)}
+					</div>
+				)}
+			</form>
 
 			<PreviousStepButton onClick={() => dispatch(prevStep())} />
 		</ModalContainer>
