@@ -1,10 +1,10 @@
-import { ThreeDotsIcon } from "../../../../icons/MoodsAndPostsIcons/ThreeDotsIcon";
+import { ThreeDotsIcon } from "../../../../Icons/MoodsAndPostsIcons/ThreeDotsIcon";
 import { FriendsGraphic } from "./FriendsGraphic";
 
 export const FriendsStatus = () => {
 	return (
 		<section>
-			<header className="text-neutralDark flex justify-between items-center">
+			<header className="flex items-center justify-between text-neutralDark">
 				<div className="text-2xs">Friends emotions status</div>
 				<ThreeDotsIcon />
 			</header>

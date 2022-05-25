@@ -5,9 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
-import { AuthProvider } from "./components/authentication/AuthProvider";
+import { AuthProvider } from "./Components/authentication/AuthProvider";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AppProvider } from "./app/store";
+import { AppProvider } from "./App/store";
 
 Amplify.configure(awsExports);
 

@@ -1,7 +1,7 @@
 import { CompresssedSidebar } from "./CompressedSidebar";
 import { ExtendedSidebar } from "./ExtendedSidebar";
 import { useSelector } from "react-redux";
-import { useAuth } from "../../components/authentication/AuthProvider";
+import { useAuth } from "../../Components/authentication/AuthProvider";
 import { useNavigate } from "react-router-dom";
 
 export const Sidebar = () => {

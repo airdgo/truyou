@@ -1,4 +1,4 @@
-import { InsertTextIcon } from "../../../icons/MoodsAndPostsIcons/InsertTextIcon";
+import { InsertTextIcon } from "../../../Icons/MoodsAndPostsIcons/InsertTextIcon";
 
 export const InsertTextButton = () => {
 	return (

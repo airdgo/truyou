@@ -1,4 +1,4 @@
-import { ChangeStepIcon } from "../../../icons/MoodsAndPostsIcons/ChangeStepIcon";
+import { ChangeStepIcon } from "../../../Icons/MoodsAndPostsIcons/ChangeStepIcon";
 
 export const PreviousStepButton = ({ ...props }) => {
 	return (

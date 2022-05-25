@@ -1,4 +1,4 @@
-import { InsertVideoIcon } from "../../../icons/MoodsAndPostsIcons/InsertVideoIcon";
+import { InsertVideoIcon } from "../../../Icons/MoodsAndPostsIcons/InsertVideoIcon";
 
 export const InsertVideoButton = () => {
 	return (

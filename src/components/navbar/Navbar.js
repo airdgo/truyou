@@ -1,8 +1,8 @@
 import { SearchBar } from "./Searchbar";
 import { useAuth } from "../authentication/AuthProvider";
-import { CryptoIcon } from "../../icons/SidebarIcons/CryptoIcon";
-import { BellIcon } from "../../icons/NavbarIcons/BellIcon";
-import { MessageIcon } from "../../icons/NavbarIcons/MessageIcon";
+import { CryptoIcon } from "../../Icons/SidebarIcons/CryptoIcon";
+import { BellIcon } from "../../Icons/NavbarIcons/BellIcon";
+import { MessageIcon } from "../../Icons/NavbarIcons/MessageIcon";
 import { useSelector } from "react-redux";
 
 export const Navbar = () => {

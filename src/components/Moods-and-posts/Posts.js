@@ -1,9 +1,9 @@
-import { ThreeDotsIcon } from "../../icons/MoodsAndPostsIcons/ThreeDotsIcon";
+import { ThreeDotsIcon } from "../../Icons/MoodsAndPostsIcons/ThreeDotsIcon";
 import { PrimaryButton } from "../PrimaryButton";
-import { LayersIcon } from "../../icons/MoodsAndPostsIcons/LayersIcon";
-import { GridIcon } from "../../icons/MoodsAndPostsIcons/GridIcon";
+import { LayersIcon } from "../../Icons/MoodsAndPostsIcons/LayersIcon";
+import { GridIcon } from "../../Icons/MoodsAndPostsIcons/GridIcon";
 import { useAuth } from "../authentication/AuthProvider";
-import { ImageIcon } from "../../icons/MoodsAndPostsIcons/ImageIcon";
+import { ImageIcon } from "../../Icons/MoodsAndPostsIcons/ImageIcon";
 import { Section } from "../Section";
 import { Modal } from "../Newpost/Modal";
 import { useSelector, useDispatch } from "react-redux";

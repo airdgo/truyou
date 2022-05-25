@@ -1,19 +1,19 @@
 import { FaCircle } from "react-icons/fa";
-import { MyProfileIcon } from "../../icons/SidebarIcons/MyProfileIcon";
-import { MyFriendsIcon } from "../../icons/SidebarIcons/MyFriendsIcon";
-import { PostsIcon } from "../../icons/SidebarIcons/PostsIcon";
-import { CryptoIcon } from "../../icons/SidebarIcons/CryptoIcon";
-import { BucketListIcon } from "../../icons/SidebarIcons/BucketListIcon";
-import { LogoutIcon } from "../../icons/SidebarIcons/LogoutIcon";
-import { MySettingsIcon } from "../../icons/SidebarIcons/MySettingsIcon";
-import { MyStatusIcon } from "../../icons/SidebarIcons/MyStatusIcon";
-import { AllMyFriendsIcon } from "../../icons/SidebarIcons/AllMyFriendsIcon";
-import { FriendsStatusIcon } from "../../icons/SidebarIcons/FriendsStatusIcon";
-import { FriendsSettingsIcon } from "../../icons/SidebarIcons/FriendsSettingsIcon";
-import { PostSettingsIcon } from "../../icons/SidebarIcons/PostSettingsIcon";
-import { AlbumsIcon } from "../../icons/SidebarIcons/AlbumsIcon";
-import { CloseSidebarIcon } from "../../icons/SidebarIcons/CloseSidebarIcon";
-import { useAuth } from "../../components/authentication/AuthProvider";
+import { MyProfileIcon } from "../../Icons/SidebarIcons/MyProfileIcon";
+import { MyFriendsIcon } from "../../Icons/SidebarIcons/MyFriendsIcon";
+import { PostsIcon } from "../../Icons/SidebarIcons/PostsIcon";
+import { CryptoIcon } from "../../Icons/SidebarIcons/CryptoIcon";
+import { BucketListIcon } from "../../Icons/SidebarIcons/BucketListIcon";
+import { LogoutIcon } from "../../Icons/SidebarIcons/LogoutIcon";
+import { MySettingsIcon } from "../../Icons/SidebarIcons/MySettingsIcon";
+import { MyStatusIcon } from "../../Icons/SidebarIcons/MyStatusIcon";
+import { AllMyFriendsIcon } from "../../Icons/SidebarIcons/AllMyFriendsIcon";
+import { FriendsStatusIcon } from "../../Icons/SidebarIcons/FriendsStatusIcon";
+import { FriendsSettingsIcon } from "../../Icons/SidebarIcons/FriendsSettingsIcon";
+import { PostSettingsIcon } from "../../Icons/SidebarIcons/PostSettingsIcon";
+import { AlbumsIcon } from "../../Icons/SidebarIcons/AlbumsIcon";
+import { CloseSidebarIcon } from "../../Icons/SidebarIcons/CloseSidebarIcon";
+import { useAuth } from "../../Components/authentication/AuthProvider";
 import { useSelector } from "react-redux";
 
 export const SidebarData = [
