@@ -7,7 +7,7 @@ import Amplify from "aws-amplify";
 import awsExports from "./aws-exports";
 import { AuthProvider } from "./Authentication/AuthProvider";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AppProvider } from "./App/store";
+import { AppProvider } from "./app/store";
 
 Amplify.configure(awsExports);
 

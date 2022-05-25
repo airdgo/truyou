@@ -7,7 +7,7 @@ export const PostsAdded = () => {
 	const sortedPosts = posts.slice().sort((x, y) => y.createdAt - x.createdAt);
 	const renderedPosts = sortedPosts.map((post) => {
 		const props = {
-			key: post.id,
+			postId: post.id,
 			mood: post.mood,
 			date: post.date,
 			reactions: post.reactions,

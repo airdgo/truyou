@@ -7,13 +7,14 @@ import { Section } from "../../Components/Section";
 import { Modal } from "../../Containers/AddPost/Modal";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleModal } from "../../Features/PostsModal/postsModalSlice";
+import { selectAllPosts } from "../../Features/Posts/postsSlice";
 import { NoPostsAdded } from "./NoPostsAdded";
 import { PostsAdded } from "./PostsAdded";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
 	const postsModal = useSelector((state) => state.postsModal);
-	const posts = useSelector((state) => state.posts);
+	const posts = useSelector(selectAllPosts);
 	const dispatch = useDispatch();
 
 	return (

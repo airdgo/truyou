@@ -5,7 +5,7 @@ const initialState = [
 		id: 0,
 		mood: "happy",
 		date: "01. 01. 2022",
-		reactions: "John, Doe, Joe and other 3",
+		reactions: ["userId", "userId"],
 		createdAt: Date.now(),
 		message:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim",
@@ -35,18 +35,23 @@ export const postsSlice = createSlice({
 						createdAt: Date.now(),
 						mood,
 						date: newdate,
-						reactions,
+						reactions: [],
 						message,
 						images,
 					},
 				};
 			},
 		},
+		reactionAdded: (state, action) => {
+			const { postId, reactions } = action.payload;
+			const existingPost = state.find((post) => post.id === postId);
+			if (existingPost) existingPost.reactions.push(postId);
+		},
 	},
 });
 
 export const selectAllPosts = (state) => state.posts;
 
-export const { postAdded } = postsSlice.actions;
+export const { postAdded, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;

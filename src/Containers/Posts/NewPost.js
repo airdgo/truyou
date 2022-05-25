@@ -1,10 +1,13 @@
 import { FaCircle } from "react-icons/fa";
 import { LoveIcon } from "../../Icons/MoodsAndPostsIcons/LoveIcon";
 import { useAuth } from "../../Authentication/AuthProvider";
+import { useDispatch } from "react-redux";
+import { reactionAdded } from "../../Features/Posts/postsSlice";
 
 export const NewPost = (props) => {
-	const { mood, date, reactions, message, images } = props;
+	const { mood, date, reactions, message, images, postId } = props;
 	const { currentUser } = useAuth();
+	const dispatch = useDispatch();
 
 	const renderedImages =
 		images[0] &&
@@ -30,8 +33,8 @@ export const NewPost = (props) => {
 				{date}
 			</p>
 			<div className="absolute right-0 mr-8 flex items-center gap-4 text-xs font-light text-neutralDarker">
-				<p>{reactions}</p>
-				<button>
+				<p>{reactions.length}</p>
+				<button onClick={() => dispatch(reactionAdded({ postId: postId }))}>
 					<LoveIcon />
 				</button>
 			</div>
