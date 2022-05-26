@@ -5,7 +5,10 @@ const initialState = [
 		id: 0,
 		mood: "happy",
 		date: "01. 01. 2022",
-		reactions: ["userId", "userId"],
+		reactions: [
+			{ postId: "0", username: "user1" },
+			{ postId: "0", username: "user2" },
+		],
 		createdAt: Date.now(),
 		message:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim",
@@ -43,9 +46,17 @@ export const postsSlice = createSlice({
 			},
 		},
 		reactionAdded: (state, action) => {
-			const { postId, reactions } = action.payload;
+			const { postId, username } = action.payload;
 			const existingPost = state.find((post) => post.id === postId);
-			if (existingPost) existingPost.reactions.push(postId);
+
+			if (existingPost) {
+				const userReactionIndex = existingPost.reactions.findIndex(
+					(reaction) => reaction.username === username
+				);
+				if (userReactionIndex !== -1) {
+					existingPost.reactions.splice(userReactionIndex, 1);
+				} else existingPost.reactions.push({ postId, username });
+			}
 		},
 	},
 });

@@ -34,7 +34,13 @@ export const NewPost = (props) => {
 			</p>
 			<div className="absolute right-0 mr-8 flex items-center gap-4 text-xs font-light text-neutralDarker">
 				<p>{reactions.length}</p>
-				<button onClick={() => dispatch(reactionAdded({ postId: postId }))}>
+				<button
+					onClick={() =>
+						dispatch(
+							reactionAdded({ postId: postId, username: currentUser.username })
+						)
+					}
+				>
 					<LoveIcon />
 				</button>
 			</div>
