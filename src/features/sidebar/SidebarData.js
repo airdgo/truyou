@@ -15,6 +15,7 @@ import { AlbumsIcon } from "../../Icons/SidebarIcons/AlbumsIcon";
 import { CloseSidebarIcon } from "../../Icons/SidebarIcons/CloseSidebarIcon";
 import { useAuth } from "../../Components/authentication/AuthProvider";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export const SidebarData = [
 	{
@@ -109,7 +110,19 @@ export const ProfileIconExtended = () => {
 	);
 };
 
-export const SidebarLogout = ({ handleLogout }) => {
+export const SidebarLogout = () => {
+	const { logout } = useAuth();
+	const navigate = useNavigate();
+
+	async function handleLogout() {
+		try {
+			await logout();
+			navigate("/login");
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
 	return (
 		<li className="cursor-pointer text-xl" onClick={handleLogout}>
 			<LogoutIcon />
