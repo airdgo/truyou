@@ -108,7 +108,7 @@ export const Login = () => {
 								to="/signup"
 								className="ml-1 cursor-pointer font-medium text-primary"
 							>
-								Signup!
+								Sign up!
 							</Link>
 						</p>
 						<p className="mt-1 text-center">
