@@ -101,15 +101,25 @@ export const Login = () => {
 						<AuthError message={errorMessage} />
 						<FormButton disabled={loading}>Login</FormButton>
 					</div>
-
-					<p className="mb-28 text-xs font-light">
-						<Link
-							to="/forgot-password-step-1"
-							className="cursor-pointer font-medium text-primary"
-						>
-							Forgot password?
-						</Link>
-					</p>
+					<div className="mb-28 text-xs font-light">
+						<p>
+							Don't have an account?
+							<Link
+								to="/signup"
+								className="ml-1 cursor-pointer font-medium text-primary"
+							>
+								Signup!
+							</Link>
+						</p>
+						<p className="mt-1 text-center">
+							<Link
+								to="/forgot-password-step-1"
+								className="cursor-pointer font-medium text-primary"
+							>
+								Forgot password?
+							</Link>
+						</p>
+					</div>
 				</Form>
 			</FormContainer>
 			<AuthFooter />
