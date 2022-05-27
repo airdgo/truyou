@@ -13,7 +13,7 @@ import { FriendsSettingsIcon } from "../../Icons/SidebarIcons/FriendsSettingsIco
 import { PostSettingsIcon } from "../../Icons/SidebarIcons/PostSettingsIcon";
 import { AlbumsIcon } from "../../Icons/SidebarIcons/AlbumsIcon";
 import { CloseSidebarIcon } from "../../Icons/SidebarIcons/CloseSidebarIcon";
-import { useAuth } from "../../Components/authentication/AuthProvider";
+import { useAuth } from "../../Authentication/AuthProvider";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 

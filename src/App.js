@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import { Dashboard } from "./Components/dashboard/Dashboard";
-import { Signup } from "./Components/authentication/Signup";
-import { ConfirmSignup } from "./Components/authentication/ConfirmSignup";
-import { Login } from "./Components/authentication/Login";
-import { ForgotPasswordStep1 } from "./Components/authentication/ForgotPasswordStep1";
-import { ForgotPasswordStep2 } from "./Components/authentication/ForgotPasswordStep2";
+import { Dashboard } from "./Pages/Dashboard/Dashboard";
+import { Signup } from "./Pages/Signup/Signup";
+import { ConfirmSignup } from "./Pages/Signup/ConfirmSignup";
+import { Login } from "./Pages/Login/Login";
+import { ForgotPasswordStep1 } from "./Pages/ForgotPassword/ForgotPasswordStep1";
+import { ForgotPasswordStep2 } from "./Pages/ForgotPassword/ForgotPasswordStep2";
 import { Layout } from "./Components/Layout";
-import RequireAuth from "./Components/authentication/RequireAuth";
-import RedirectToDashboad from "./Components/authentication/RedirectToDashboard";
-import RedirectToForgotPasswordStep1 from "./Components/authentication/RedirectToForgotPasswordStep1";
-import { NotFound } from "./Components/NotFound";
+import RequireAuth from "./Authentication/RequireAuth";
+import RedirectToDashboad from "./Authentication/RedirectToDashboard";
+import RedirectToForgotPasswordStep1 from "./Authentication/RedirectToForgotPasswordStep1";
+import { NotFound } from "./Pages/NotFound/NotFound";
 
 function App() {
 	return (
