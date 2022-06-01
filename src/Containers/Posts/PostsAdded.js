@@ -4,8 +4,7 @@ import { selectAllPosts } from "../../Features/Posts/postsSlice";
 
 export const PostsAdded = () => {
 	const posts = useSelector(selectAllPosts);
-	const sortedPosts = posts.slice().sort((x, y) => y.createdAt - x.createdAt);
-	const renderedPosts = sortedPosts.map((post) => {
+	const renderedPosts = posts.map((post) => {
 		const props = {
 			postId: post.id,
 			mood: post.mood,

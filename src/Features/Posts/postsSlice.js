@@ -22,7 +22,7 @@ export const postsSlice = createSlice({
 	reducers: {
 		postAdded: {
 			reducer: (state, action) => {
-				state.push(action.payload); // unshift instead of push
+				state.unshift(action.payload);
 			},
 			prepare: (mood, reactions, message, images) => {
 				const today = new Date();
