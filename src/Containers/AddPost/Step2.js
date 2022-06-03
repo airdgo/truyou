@@ -54,13 +54,13 @@ export const Step2 = () => {
 	}, [imageFiles]);
 
 	const renderedImages = postsModal.images[0] && (
-		<div className="grid">
+		<div className="grid max-w-lg grid-cols-3 gap-1">
 			{postsModal.images.map((imageSrc) => (
-				<div key={imageSrc.URL} className="max-w-sm">
+				<div key={imageSrc.URL} className="h-full w-full first:col-span-3">
 					<img
 						src={imageSrc.URL}
 						alt="Something went wrong with your file"
-						className="rounded-xl"
+						className="h-full w-full rounded-xl object-cover"
 					/>
 				</div>
 			))}
