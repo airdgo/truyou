@@ -10,7 +10,7 @@ export const NewPost = (props) => {
 	const dispatch = useDispatch();
 
 	const renderedImages =
-		images[0] &&
+		images.length &&
 		images.map((imageSrc) => (
 			<div key={imageSrc.URL} className="max-w-sm">
 				<img

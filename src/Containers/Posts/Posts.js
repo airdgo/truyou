@@ -10,12 +10,26 @@ import { toggleModal } from "../../Features/PostsModal/postsModalSlice";
 import { selectAllPosts } from "../../Features/Posts/postsSlice";
 import { NoPostsAdded } from "./NoPostsAdded";
 import { PostsAdded } from "./PostsAdded";
+import { useEffect } from "react";
 
 export const Posts = () => {
 	const { currentUser } = useAuth();
 	const postsModal = useSelector((state) => state.postsModal);
 	const posts = useSelector(selectAllPosts);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (!postsModal.modalOpen) return;
+
+		const closeModal = (e) => {
+			if (e.key === "Escape") {
+				dispatch(toggleModal());
+			}
+		};
+
+		window.addEventListener("keydown", closeModal);
+		return () => window.removeEventListener("keydown", closeModal);
+	}, [postsModal.modalOpen]);
 
 	return (
 		<Section className="min-h-screen">
