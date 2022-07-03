@@ -6,7 +6,7 @@ TruYou is a social media web application where users can register and post once 
 
 ## Test
 
-Email adress: calehi7303@kahase.com
+Email adress: calehi7303@kahase.com  
 Password: qweQWE123!@#
 
 As an alternative, one might create a test email address on https://temp-mail.org/en/ to check the entire authentication process.
