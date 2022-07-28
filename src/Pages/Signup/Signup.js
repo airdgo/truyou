@@ -107,10 +107,15 @@ export const Signup = () => {
 	});
 
 	return (
-		<div className="min-h-screen bg-background font-card">
+		<div className="flex min-h-screen bg-background font-card">
+			<div className="w-full bg-[url('./Assets/mind.svg')] bg-cover bg-bottom bg-no-repeat">
+				<div>LOGO</div>
+				<h1>Welcome @Truyou</h1>
+				<p>Start building you better self & community!</p>
+			</div>
 			<FormContainer>
 				<Form onSubmit={handleSubmit(onSubmit)}>
-					<FormHeader>Sign up for a free account</FormHeader>
+					<FormHeader>Sign up</FormHeader>
 
 					<div className="grid w-full grid-cols-2 gap-3">
 						{renderedInputs}
@@ -132,8 +137,8 @@ export const Signup = () => {
 						by creating an account you will receive 10 crypto
 					</p>
 				</Form>
+				<AuthFooter />
 			</FormContainer>
-			<AuthFooter />
 		</div>
 	);
 };
